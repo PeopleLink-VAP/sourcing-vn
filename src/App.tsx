@@ -29,32 +29,34 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <SiteHeader />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/product-sourcing" element={<ProductSourcing />} />
-              <Route path="/talent-sourcing" element={<TalentSourcing />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/catalogs" element={<Catalogs />} />
-              <Route path="/partners" element={<Partners />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/admin" element={<RequireAdmin><AdminPortal /></RequireAdmin>} />
-              <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <SiteFooter />
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
+      <AuthProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <SiteHeader />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/product-sourcing" element={<ProductSourcing />} />
+                <Route path="/talent-sourcing" element={<TalentSourcing />} />
+                <Route path="/news" element={<News />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/catalogs" element={<Catalogs />} />
+                <Route path="/partners" element={<Partners />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/admin" element={<RequireAdmin><AdminPortal /></RequireAdmin>} />
+                <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <SiteFooter />
+            </BrowserRouter>
+          </TooltipProvider>
+        </LanguageProvider>
+      </AuthProvider>
     </HelmetProvider>
   </QueryClientProvider>
 );
