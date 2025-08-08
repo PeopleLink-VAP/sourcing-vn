@@ -58,6 +58,8 @@ export const SiteFooter = () => {
               </div>
               <p className="text-xs text-muted-foreground">
                 © {new Date().getFullYear()} sourcing.vn · All rights reserved
+                {/* Subtle Admin login link */}
+                <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">Admin Login</Link>
               </p>
             </div>
           </div>

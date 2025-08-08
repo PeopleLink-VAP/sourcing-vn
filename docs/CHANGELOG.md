@@ -1,3 +1,7 @@
+### 2024-05-20
+- Removed login button from header.
+- Added subtle Admin login link to footer.
+
 ### 08-Aug-2025
 - Implemented Supabase Auth (email/password + Google OAuth UI), auth context, and protected routes.
 - Added /auth page with login/signup, header login/logout, and admin guard for /admin.

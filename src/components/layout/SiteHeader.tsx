@@ -43,7 +43,6 @@ const newsCategories = [
   "Talent Sourcing (Virtual Assistants)", 
   "Vietnam Market Insights & News",
   "Case Studies & Resources",
-  "About Sourcing.vn & Our Network"
 ];
 
 export const SiteHeader = () => {
@@ -132,14 +131,7 @@ export const SiteHeader = () => {
                 <LogOut className="w-4 h-4" />
                 <span className="hidden sm:inline">Logout</span>
               </Button>
-            ) : (
-              <Link to="/auth" aria-label="Login">
-                <Button variant="cta" size="sm">
-                  <LogIn className="w-4 h-4" />
-                  <span className="hidden sm:inline">Login</span>
-                </Button>
-              </Link>
-            )}
+            ) : null}
 
             <div className="md:hidden">
               <Button variant="outline" size="icon" aria-label="Menu" onClick={() => setOpen((o) => !o)}>

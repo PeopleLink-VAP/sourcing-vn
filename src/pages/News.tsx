@@ -6,8 +6,7 @@ const categories = [
   "Product Sourcing Services",
   "Talent Sourcing (Virtual Assistants)", 
   "Vietnam Market Insights & News",
-  "Case Studies & Resources",
-  "About Sourcing.vn & Our Network"
+  "Case Studies & Resources"
 ];
 
 const todaysHeadlines = [
@@ -52,15 +51,6 @@ const featuredNews = [
     views: "2.7k",
     comments: "98",
     time: "8 hours ago"
-  },
-  {
-    id: 5,
-    category: "About Sourcing.vn & Our Network",
-    title: "Sourcing.vn expands partner network to 200+ verified Vietnamese suppliers",
-    author: "Lisa Tran",
-    views: "1.9k", 
-    comments: "56",
-    time: "12 hours ago"
   }
 ];
 
