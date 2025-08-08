@@ -25,6 +25,7 @@ import EditorPortal from "./pages/EditorPortal";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { SiteHeader } from "./components/layout/SiteHeader";
 import { SiteFooter } from "./components/layout/SiteFooter";
+import ScrollToTop from "./components/layout/ScrollToTop";
 import AuthPage from "./pages/Auth";
 import { AuthProvider } from "./contexts/AuthContext";
 import { RequireAdmin, RequireAuth } from "./components/auth/guards";
@@ -41,6 +42,7 @@ const App = () => (
             <Sonner />
             <BrowserRouter>
               <SiteHeader />
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/founder" element={<Founder />} />
