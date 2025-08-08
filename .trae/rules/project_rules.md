@@ -1,4 +1,5 @@
 # Product Features
+- Features that has been planned will be kept in docs/TODO.md
 - Project features are found in docs/OVERVIEW.md
 
 # Software Development Rules
