@@ -69,19 +69,19 @@ export const SiteFooter = () => {
             <h3 className="font-sentic-medium font-semibold text-sm"><Briefcase className="w-4 h-4 mr-2 inline-block" /> {t("footer.forBusinessOwners")}</h3>
             <div className="space-y-2">
               <Link to="/product-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
-                Product Sourcing
+                {t("footer.productSourcing")}
               </Link>
               <Link to="/talent-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
-                Talent Sourcing
+                {t("footer.talentSourcing")}
               </Link>
               <Link to="/case-studies" className="block text-sm text-muted-foreground hover:text-foreground">
-                Case Studies
+                {t("footer.caseStudies")}
               </Link>
               <Link to="/catalogs" className="block text-sm text-muted-foreground hover:text-foreground">
-                Catalogs
+                {t("footer.catalogs")}
               </Link>
               <Link to="/partners" className="block text-sm text-muted-foreground hover:text-foreground">
-                Partners
+                {t("footer.partners")}
               </Link>
               <Link to="/contact" className="block text-sm text-muted-foreground hover:text-foreground">
                 {t("footer.contactUs")}

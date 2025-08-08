@@ -58,10 +58,10 @@ export const SiteHeader = () => {
                         <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-primary/10 to-accent/10 p-6 no-underline outline-none focus:shadow-md">
                           <Factory className="h-8 w-8 text-primary mb-3" />
                           <div className="mb-2 text-lg font-sentic font-semibold text-primary">
-                            Our Services
+                            {t("nav.ourServices")}
                           </div>
                           <p className="text-sm leading-tight text-muted-foreground">
-                            Professional sourcing solutions connecting you with Vietnam's manufacturing excellence.
+                            {t("nav.servicesDescription")}
                           </p>
                         </div>
                       </div>
@@ -71,7 +71,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.product")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Connect with reliable factories for quality manufacturing
+                          {t("nav.productDescription")}
                         </p>
                       </NavLink>
                       <NavLink 
@@ -80,7 +80,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.talent")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Hire skilled Virtual Assistants from Vietnam
+                          {t("nav.talentDescription")}
                         </p>
                       </NavLink>
                     </div>
@@ -98,10 +98,10 @@ export const SiteHeader = () => {
                         <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-secondary/20 to-muted/20 p-6 no-underline outline-none focus:shadow-md">
                           <FileText className="h-8 w-8 text-primary mb-3" />
                           <div className="mb-2 text-lg font-sentic font-semibold text-primary">
-                            Resources
+                            {t("nav.resources")}
                           </div>
                           <p className="text-sm leading-tight text-muted-foreground">
-                            Insights, case studies, and resources to help you succeed.
+                            {t("nav.resourcesDescription")}
                           </p>
                         </div>
                       </div>
@@ -111,7 +111,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.cases")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Our partnerships in action
+                          {t("nav.casesDescription")}
                         </p>
                       </NavLink>
                       <NavLink 
@@ -120,7 +120,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.catalogs")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Product catalogs and samples
+                          {t("nav.catalogsDescription")}
                         </p>
                       </NavLink>
                       <NavLink 
@@ -129,7 +129,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.partners")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Our trusted network
+                          {t("nav.partnersDescription")}
                         </p>
                       </NavLink>
                     </div>
@@ -147,10 +147,10 @@ export const SiteHeader = () => {
                         <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-accent/10 to-primary/5 p-6 no-underline outline-none focus:shadow-md">
                           <Users className="h-8 w-8 text-primary mb-3" />
                           <div className="mb-2 text-lg font-sentic font-semibold text-primary">
-                            About Us
+                            {t("nav.about")}
                           </div>
                           <p className="text-sm leading-tight text-muted-foreground">
-                            Learn more about our team and mission.
+                            {t("nav.aboutDescription")}
                           </p>
                         </div>
                       </div>
@@ -158,9 +158,9 @@ export const SiteHeader = () => {
                         to="/founder" 
                         className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
                       >
-                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">About the Founder</div>
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.founderTitle")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Meet Duyen Pham and her story
+                          {t("nav.founderDescription")}
                         </p>
                       </NavLink>
                       <NavLink 
@@ -169,7 +169,7 @@ export const SiteHeader = () => {
                       >
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.team")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          Meet our expert team
+                          {t("nav.teamDescription")}
                         </p>
                       </NavLink>
                     </div>
@@ -212,7 +212,7 @@ export const SiteHeader = () => {
                   {/* Mobile Navigation */}
                   <nav className="flex-1 p-4 space-y-2">
                     <div className="space-y-1">
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3">Services</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3">{t("nav.mobile.services")}</h4>
                       <NavLink to="/product-sourcing" className={mobileNavItemClass} onClick={() => setOpen(false)}>
                         <Factory className="w-5 h-5 mr-3 text-primary" />
                         <span>{t("nav.product")}</span>
@@ -224,7 +224,7 @@ export const SiteHeader = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">Resources</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.resources")}</h4>
                       <NavLink to="/news" className={mobileNavItemClass} onClick={() => setOpen(false)}>
                         <Newspaper className="w-5 h-5 mr-3 text-accent" />
                         <span>{t("nav.news")}</span>
@@ -244,7 +244,7 @@ export const SiteHeader = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">About</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.about")}</h4>
                       <NavLink to="/team" className={mobileNavItemClass} onClick={() => setOpen(false)}>
                         <Users className="w-5 h-5 mr-3 text-primary" />
                         <span>{t("nav.team")}</span>
@@ -274,19 +274,19 @@ export const SiteHeader = () => {
           <div className="container mx-auto px-4">
             <nav className="flex items-center gap-8 py-3 overflow-x-auto">
               <a href="#product-sourcing" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
-                Product Sourcing Services
+                {t("nav.newsbar.productSourcing")}
               </a>
               <a href="#talent-sourcing" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
-                Talent Sourcing (VAs)
+                {t("nav.newsbar.talentSourcing")}
               </a>
               <a href="#market-insights" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
-                Vietnam Market Insights
+                {t("nav.newsbar.marketInsights")}
               </a>
               <a href="#case-studies" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
-                Case Studies & Resources
+                {t("nav.newsbar.caseStudies")}
               </a>
               <a href="#about-network" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
-                About Our Network
+                {t("nav.newsbar.aboutNetwork")}
               </a>
             </nav>
           </div>

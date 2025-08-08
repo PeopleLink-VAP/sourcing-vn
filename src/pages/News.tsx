@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { useState } from "react";
 import { Eye, MessageSquare, Bookmark, Clock, User } from "lucide-react";
+import { useI18n } from "@/contexts/LanguageContext";
 
 const categories = [
   "Product Sourcing Services",
@@ -72,6 +73,7 @@ const marketInsights = [
 ];
 
 const News = () => {
+  const { t } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [savedArticles, setSavedArticles] = useState<number[]>([]);
 
@@ -86,7 +88,7 @@ const News = () => {
   return (
     <main className="min-h-screen bg-gray-50">
       <SEO
-        title="Vietnam Trade News — Curated Portal"
+        title={`${t("news.title")} — Curated Portal`}
         description="Curated updates on import/export policies, outsourcing trends, and Vietnam market developments."
       />
       
@@ -95,7 +97,7 @@ const News = () => {
           {/* Sidebar */}
           <aside className="w-64 space-y-6">
             <div className="bg-white rounded-lg p-4 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-3">Categories</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">{t("news.categories")}</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => setSelectedCategory("All")}
@@ -105,7 +107,7 @@ const News = () => {
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
-                  All News
+                  {t("news.allNews")}
                 </button>
                 {categories.map((category) => (
                   <button
@@ -128,7 +130,7 @@ const News = () => {
           <div className="flex-1 space-y-8">
             {/* Today's Headlines */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Today's Headlines</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("news.todayHeadlines")}</h2>
               <div className="space-y-6">
                 {todaysHeadlines.map((article) => (
                   <article key={article.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -194,8 +196,8 @@ const News = () => {
             {/* Featured News */}
             <section>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Featured News</h2>
-                <button className="text-primary hover:text-primary/80 font-medium">See all</button>
+                <h2 className="text-2xl font-bold text-gray-900">{t("news.featuredNews")}</h2>
+                <button className="text-primary hover:text-primary/80 font-medium">{t("news.seeAll")}</button>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredNews.map((article) => (
@@ -246,8 +248,8 @@ const News = () => {
           <aside className="w-80 space-y-6">
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-900">Market Insights</h3>
-                <button className="text-primary hover:text-primary/80 text-sm font-medium">See all</button>
+                <h3 className="font-semibold text-gray-900">{t("news.marketInsights")}</h3>
+                <button className="text-primary hover:text-primary/80 text-sm font-medium">{t("news.seeAll")}</button>
               </div>
               <div className="space-y-4">
                 {marketInsights.map((article) => (
@@ -266,12 +268,12 @@ const News = () => {
             </div>
 
             <div className="bg-gradient-to-br from-primary to-primary-600 rounded-lg p-6 text-white">
-              <h3 className="font-semibold mb-2">Stay Updated</h3>
+              <h3 className="font-semibold mb-2">{t("news.stayUpdated")}</h3>
               <p className="text-sm opacity-90 mb-4">
-                Get the latest Vietnam trade news delivered to your inbox.
+                {t("news.subscribeDescription")}
               </p>
               <button className="w-full bg-white text-primary font-medium py-2 px-4 rounded hover:bg-gray-100 transition-colors">
-                Subscribe Now
+                {t("news.subscribeNow")}
               </button>
             </div>
           </aside>

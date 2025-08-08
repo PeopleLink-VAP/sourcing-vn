@@ -40,9 +40,9 @@ const Index = () => {
       </section>
 
       <section className="container mx-auto py-12 md:py-16">
-        <h2 className="text-2xl font-semibold">Giới thiệu dịch vụ</h2>
+        <h2 className="text-2xl font-semibold">{t("home.servicesTitle")}</h2>
         <p className="text-muted-foreground mt-2 max-w-3xl">
-          Tư vấn nhập khẩu/xuất khẩu, tìm nhà máy, kiểm hàng, logistics, và quản lý dự án. Talent sourcing cung cấp Virtual Assistants (VA) theo yêu cầu.
+          {t("home.servicesDescription")}
         </p>
       </section>
     </main>
