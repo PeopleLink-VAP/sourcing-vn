@@ -1,17 +1,13 @@
 # Product Features
-- Features that has been planned will be kept in docs/TODO.md
 - Project features are found in docs/OVERVIEW.md
+- Features that has been planned will be kept in docs/TODO.md; make sure to update and checked the list whenever got the chance.
+- Add appropriate journal entries to file docs/CHANGELOG.md to keep track of major and minor changes, including date and timestamp, use layman terms if possible, concise reporting.
+- Pro-actively ask to commit changes with proper commit message after each tasks done.
 
 # Software Development Rules
-- Commit changes with proper commit message.
-- Add appropriate journal entries to file docs/CHANGELOG.md to keep track of major and minor changes, including date and timestamp, use layman terms if possible, concise reporting.
-- Use English for all documentation and source code, except for Vietnamese content.
-- Use Markdown for all documentation.
-- Logos are in /public/logos folder
-  + logo_main.png : Primary color logo.
-  + logo_white_on_dark_bg.png : for dark themes for dark background.
-  + logo_w_tagline.png : full color logo with tag line.
-  + logo_bw.png : Black & White logo.
+- Compare docs/CHANGELOG.md with docs/TODO.md to see where we dropped-off from last session.
+- Use English Markdown for all documentation and source code, except for Vietnamese content.
+- Test on Production supabase, do not try to test in local environment.
 
 # Tech stack
 - Built with Lovable.dev and Trae AI IDE.
@@ -25,13 +21,19 @@
 # Basic Deploy
 
 Clone the repo and then:
-
+```bash
 npm install
 npm run dev
+```
 
 # Brand Guideline
 ## Logo Design Explain
-- The logo for sourcing.vn is a full-color wordmark that features:
+- Logos are in /public/logos folder
+  + logo_main.png : Primary color logo.
+  + logo_white_on_dark_bg.png : for dark themes for dark background.
+  + logo_w_tagline.png : full color logo with tag line.
+  + logo_bw.png : Black & White logo.
+- Description: The logo for sourcing.vn is a full-color wordmark that features:
 - - Typography: The main text "SOURCING" is in blue (#112255) typography.
 - - Symbol: The letter "O" in "SOURCING" is replaced by a target symbol with a gray (#BBBBBB) fill.
 - - Accent: A star, colored orange (#FFBB00), is positioned above the letter "I" in "SOURCING".
