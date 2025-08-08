@@ -20,7 +20,11 @@ import EditorPortal from "./pages/EditorPortal";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { SiteHeader } from "./components/layout/SiteHeader";
 import { SiteFooter } from "./components/layout/SiteFooter";
+import AuthPage from "./pages/Auth";
+import { AuthProvider } from "./contexts/AuthContext";
+import { RequireAdmin, RequireAuth } from "./components/auth/guards";
 
+const queryClient = new QueryClient();
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -42,8 +46,9 @@ const App = () => (
               <Route path="/partners" element={<Partners />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/team" element={<Team />} />
-              <Route path="/admin" element={<AdminPortal />} />
-              <Route path="/editor" element={<EditorPortal />} />
+              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/admin" element={<RequireAdmin><AdminPortal /></RequireAdmin>} />
+              <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

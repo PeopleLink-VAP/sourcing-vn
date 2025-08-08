@@ -1,5 +1,6 @@
-
 ### 08-Aug-2025
-- Link to beta.sourcing.vn subdomain with Cloudflare & Deploy via Netlify.
-- Update project logo assets.
-- Init Project on Lovable & Link with Supabase.
+- Implemented Supabase Auth (email/password + Google OAuth UI), auth context, and protected routes.
+- Added /auth page with login/signup, header login/logout, and admin guard for /admin.
+- Admin Portal: membership tiers list and create newsletter campaign form.
+- Note: To grant admin access, set your profile role to 'admin' in public.profiles.
+

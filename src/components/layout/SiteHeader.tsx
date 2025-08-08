@@ -1,8 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, LogIn, LogOut, Shield } from "lucide-react";
 import { useI18n } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { to: "/", key: "nav.home" as const },
@@ -19,6 +20,7 @@ const navItems = [
 
 export const SiteHeader = () => {
   const { t, lang, setLang } = useI18n();
+  const { user, isAdmin, signOut } = useAuth();
   const [open, setOpen] = useState(false);
 
   const linkCls = ({ isActive }: { isActive: boolean }) =>
@@ -37,6 +39,11 @@ export const SiteHeader = () => {
               {t(n.key)}
             </NavLink>
           ))}
+          {isAdmin && (
+            <NavLink to="/admin" className={linkCls}>
+              <span className="inline-flex items-center gap-1"><Shield className="w-4 h-4" /> Admin</span>
+            </NavLink>
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -57,6 +64,20 @@ export const SiteHeader = () => {
             </button>
           </div>
 
+          {user ? (
+            <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:inline">Logout</span>
+            </Button>
+          ) : (
+            <Link to="/auth" aria-label="Login">
+              <Button variant="cta" size="sm">
+                <LogIn className="w-4 h-4" />
+                <span className="hidden sm:inline">Login</span>
+              </Button>
+            </Link>
+          )}
+
           <div className="md:hidden">
             <Button variant="outline" size="icon" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
               <Menu />
@@ -73,6 +94,11 @@ export const SiteHeader = () => {
                 {t(n.key)}
               </NavLink>
             ))}
+            {isAdmin && (
+              <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
+                Admin
+              </NavLink>
+            )}
             <div className="col-span-2 flex items-center gap-2 pt-2">
               <span className="text-sm">Language:</span>
               <Button variant={lang === "vi" ? "secondary" : "outline"} size="sm" onClick={() => setLang("vi")}>
@@ -81,6 +107,15 @@ export const SiteHeader = () => {
               <Button variant={lang === "en" ? "secondary" : "outline"} size="sm" onClick={() => setLang("en")}>
                 EN
               </Button>
+              {user ? (
+                <Button variant="outline" size="sm" onClick={() => { setOpen(false); signOut(); }}>
+                  Logout
+                </Button>
+              ) : (
+                <Link to="/auth" onClick={() => setOpen(false)} className="ml-auto">
+                  <Button size="sm">Login</Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
