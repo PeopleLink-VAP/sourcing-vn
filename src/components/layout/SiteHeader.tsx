@@ -5,11 +5,11 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useI18n } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { Menu, Newspaper, LogOut, Factory, Users, FileText, Phone, Briefcase, HeadphonesIcon, Globe, ChevronDown } from "lucide-react";
+import { Menu, Newspaper, LogOut, Factory, Users, FileText, Phone, Briefcase, HeadphonesIcon, Globe, ChevronDown, Shield } from "lucide-react";
 
 export const SiteHeader = () => {
   const { t, lang, setLang } = useI18n();
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [isNewsMode, setIsNewsMode] = useState(false);
@@ -201,6 +201,13 @@ export const SiteHeader = () => {
               >
                 EN
               </button>
+              {user && isAdmin && (
+                <Button variant="ghost" size="icon" asChild aria-label="Admin Dashboard">
+                  <Link to="/admin">
+                    <Shield className="w-4 h-4" />
+                  </Link>
+                </Button>
+              )}
               {user && (
                 <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout">
                   <LogOut className="w-4 h-4" />
@@ -306,7 +313,15 @@ export const SiteHeader = () => {
                     </div>
                     {/* User actions */}
                     {user && (
-                      <div className="p-4 border-t border-border/10">
+                      <div className="p-4 border-t border-border/10 space-y-2">
+                        {isAdmin && (
+                          <Button variant="ghost" size="sm" asChild className="w-full justify-start font-sentic-medium">
+                            <Link to="/admin" onClick={() => setOpen(false)}>
+                              <Shield className="w-4 h-4 mr-2" />
+                              {t("auth.adminDashboard")}
+                            </Link>
+                          </Button>
+                        )}
                         <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="w-full justify-start font-sentic-medium">
                           <LogOut className="w-4 h-4 mr-2" />
                           {t("auth.logout")}

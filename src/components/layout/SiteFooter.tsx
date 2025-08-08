@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { Mail, Linkedin, Facebook, Briefcase, Users, Lightbulb } from "lucide-react";
 
 import { useI18n } from "@/contexts/LanguageContext";
- import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
 
 export const SiteFooter = () => {
   const { t } = useI18n();
+  const { user, isAdmin } = useAuth();
 
   return (
     <footer className="border-t bg-muted/30">
@@ -39,8 +41,12 @@ export const SiteFooter = () => {
 
             <p className="text-xs text-muted-foreground">
               {t("footer.copyright", { year: new Date().getFullYear() })}
-              {/* Subtle Admin login link */}
-              <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("footer.adminLogin")}</Link>
+              {/* Show Admin Dashboard link for logged-in admin users, otherwise show Admin Login link */}
+              {user && isAdmin ? (
+                <Link to="/admin" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("auth.adminDashboard")}</Link>
+              ) : (
+                <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("footer.adminLogin")}</Link>
+              )}
             </p>
           </div>
 

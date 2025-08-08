@@ -43,6 +43,7 @@ const dict: Dictionary = {
   "nav.news": { vi: "Tin tức", en: "News" },
   "auth.admin": { vi: "Quản trị", en: "Admin" },
   "auth.logout": { vi: "Đăng xuất", en: "Logout" },
+  "auth.adminDashboard": { vi: "Bảng điều khiển Admin", en: "Admin Dashboard" },
   "news.category.product_sourcing": { vi: "Dịch vụ tìm nguồn sản phẩm", en: "Product Sourcing Services" },
   "news.category.talent_sourcing": { vi: "Tìm nguồn nhân lực (Trợ lý ảo)", en: "Talent Sourcing (Virtual Assistants)" },
   "news.category.vietnam_market": { vi: "Thông tin thị trường Việt Nam & Tin tức", en: "Vietnam Market Insights & News" },

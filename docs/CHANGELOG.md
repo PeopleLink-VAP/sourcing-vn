@@ -1,3 +1,13 @@
+### 2025-01-08
+- **Admin Dashboard Links Enhancement**: Added conditional admin portal access links for logged-in admin users
+  - In **Footer**: Replaced "Admin Login" link with "Admin Dashboard" link for logged-in admin users, non-admin users still see "Admin Login" link
+  - In **Header**: Added Shield icon button for admin portal access (desktop navigation)
+  - In **Mobile Navigation**: Added Shield icon with "Admin Dashboard" link in user actions section for admin users
+  - Added new translation key `auth.adminDashboard` ("Bảng điều khiển Admin" / "Admin Dashboard")
+  - Admin dashboard links are only visible when user is authenticated and has admin role
+  - Enhanced user experience by providing direct access to admin portal for authorized users
+  - Shield icon used consistently across all admin portal access points for visual recognition
+
 ### 2024-08-08
 - **News Page Responsive Design**: Made /news page fully responsive across all device sizes
   - Added mobile-first category filter at the top for mobile and tablet devices
