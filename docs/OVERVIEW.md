@@ -7,33 +7,11 @@ Begin building the skeleton of beta.sourcing.vn platform with following main fea
 - Service Team.
 - Case study, completed projects.
 
-Language: English default & Vietnamese.
-
 High level system modules
 - News Portal.
 - Guest/Opinion/Blogging section (Public).
 - Editor Portal (for ghostwriters and editors).
 - Admin Portal (Content Management with Notion-style post editor, Newsletter Campaigns Management, Member Management with Subscription Membership Tiers).
-
-Tech stack:
-- Built with Lovable.dev and Trae AI IDE.
-- Ensure proper SEO for individual pages.
-- Mobile-first responsive design. 
-- Use Tailwind CSS with shadcn/ui for UI components.
-- Integrate with Supabase as backend (SaaS, free tier).
-- Authentication with email & Google Auth (configure on Supabase).
-- Deploy to subdomain beta.sourcing.vn via Cloudflare & Netlify.
-
-Brand Guideline:
-- The logo for sourcing.vn is a full-color wordmark that features:
-- - Typography: The main text "SOURCING" is in blue (#112255) typography.
-- - Symbol: The letter "O" in "SOURCING" is replaced by a target symbol with a gray (#BBBBBB) fill.
-- - Accent: A star, colored orange (#FFBB00), is positioned above the letter "I" in "SOURCING".
-- - Domain Extension: The ".VN" part of the logo is also in orange (#FFBB00).
-Primary Colors:
-- Blue (#112255) To be used for headlines, main text accents, backgrounds.
-- Orange (#FFBB00) To be used for highlights, CTAs, icons, star, .VN.
-- Gray (#BBBBBB) To be used for secondary UI elements, target symbol fill, dividers.
 
 Suggested Sitemap
 • Sourcing

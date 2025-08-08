@@ -27,9 +27,8 @@ export const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       <div className="container mx-auto flex h-14 items-center justify-between">
-        <Link to="/" className="font-semibold tracking-tight text-lg">
-          <span className="text-primary">sourcing</span>
-          <span className="text-accent">.vn</span>
+        <Link to="/">
+          <img src="/logos/logo_main.png" alt="sourcing.vn logo" className="h-8 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
