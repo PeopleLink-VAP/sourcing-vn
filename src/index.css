@@ -4,6 +4,13 @@
 
 /* Custom Fonts */
 @font-face {
+  font-family: 'Sentic Display';
+  src: url('/fonts/Sentic Display.otf') format('opentype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Sentic Text Medium';
   src: url('/fonts/Sentic Text Medium.otf') format('opentype');
   font-weight: 500;
@@ -125,6 +132,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sentic Display', serif;
   }
 }
 

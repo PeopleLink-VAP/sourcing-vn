@@ -19,6 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'sentic': ['Sentic Display', 'serif'],
 				'sentic-medium': ['Sentic Text Medium', 'sans-serif'],
 			},
 			colors: {
