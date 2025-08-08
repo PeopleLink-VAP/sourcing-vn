@@ -83,6 +83,7 @@ const App = () => (
                       <Route path="/case-studies/andy-plastic-handles" element={<AndyPlasticHandles />} />
                       <Route path="/case-studies/vu-kohler-eco-products" element={<VuKohlerEcoProducts />} />
                       <Route path="/team" element={<Team />} />
+                      <Route path="/contact" element={<Contact />} />
                       <Route path="/auth" element={<AuthPage />} />
                       <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

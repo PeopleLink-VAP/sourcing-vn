@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useI18n } from "@/contexts/LanguageContext";
 
@@ -18,9 +18,9 @@ const NotFound = () => {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">{t("404.title")}</h1>
         <p className="text-xl text-muted-foreground mb-4">{t("404.message")}</p>
-        <a href="/" className="text-primary underline underline-offset-4">
+        <Link to="/" className="text-primary underline underline-offset-4">
           {t("404.returnHome")}
-        </a>
+        </Link>
       </div>
     </div>
   );
