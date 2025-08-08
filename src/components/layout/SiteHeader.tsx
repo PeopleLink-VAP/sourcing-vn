@@ -178,7 +178,7 @@ export const SiteHeader = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <NavLink to="/news" className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10 ml-4 border-l border-border/20 pl-6`}>
+            <NavLink to="/news" className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10 ml-4 border-l border-border/20 pl-6 flex items-center`}>
               <Newspaper className="w-4 h-4 mr-2" />
               {t("nav.news")}
             </NavLink>
