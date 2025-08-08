@@ -1,25 +1,46 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, LogIn, LogOut, Shield } from "lucide-react";
+import { Menu, LogIn, LogOut, Shield, ChevronDown } from "lucide-react";
 import { useI18n } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
-const navItems = [
-  { to: "/", key: "nav.home" as const },
-  { to: "/product-sourcing", key: "nav.product" as const },
-  { to: "/talent-sourcing", key: "nav.talent" as const },
-  { to: "/news", key: "nav.news" as const },
-  { to: "/blog", key: "nav.blog" as const },
-  { to: "/catalogs", key: "nav.catalogs" as const },
-  { to: "/partners", key: "nav.partners" as const },
-  { to: "/case-studies", key: "nav.cases" as const },
-  { to: "/team", key: "nav.team" as const },
-  { to: "/contact", key: "nav.contact" as const },
+const navGroups = [
+  {
+    title: "Services",
+    items: [
+      { to: "/product-sourcing", key: "nav.product" as const, desc: "Connect with Vietnamese manufacturers and suppliers" },
+      { to: "/talent-sourcing", key: "nav.talent" as const, desc: "Find skilled Vietnamese professionals for your team" },
+    ]
+  },
+  {
+    title: "Resources", 
+    items: [
+      { to: "/news", key: "nav.news" as const, desc: "Latest industry updates and announcements" },
+      { to: "/blog", key: "nav.blog" as const, desc: "Expert insights and sourcing guides" },
+      { to: "/case-studies", key: "nav.cases" as const, desc: "Success stories from our clients" },
+      { to: "/catalogs", key: "nav.catalogs" as const, desc: "Browse product and service catalogs" },
+    ]
+  },
+  {
+    title: "About",
+    items: [
+      { to: "/team", key: "nav.team" as const, desc: "Meet our experienced team" },
+      { to: "/partners", key: "nav.partners" as const, desc: "Our trusted network of partners" },
+    ]
+  }
 ];
 
 export const SiteHeader = () => {
-  const { t, lang, setLang } = useI18n();
+  const { t } = useI18n();
   const { user, isAdmin, signOut } = useAuth();
   const [open, setOpen] = useState(false);
 
@@ -34,11 +55,38 @@ export const SiteHeader = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          {navItems.map((n) => (
-            <NavLink key={n.to} to={n.to} end className={linkCls}>
-              {t(n.key)}
-            </NavLink>
-          ))}
+          <NavLink to="/" end className={linkCls}>
+            {t("nav.home")}
+          </NavLink>
+          
+          <NavigationMenu>
+            <NavigationMenuList>
+              {navGroups.map((group) => (
+                <NavigationMenuItem key={group.title}>
+                  <NavigationMenuTrigger className="px-3 py-2 text-sm">
+                    {group.title}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-[400px] p-4">
+                      <div className="grid gap-3">
+                        {group.items.map((item) => (
+                          <Link key={item.to} to={item.to}>
+                            <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                              <div className="text-sm font-medium leading-none">{t(item.key)}</div>
+                              <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                                {item.desc}
+                              </p>
+                            </NavigationMenuLink>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
           {isAdmin && (
             <NavLink to="/admin" className={linkCls}>
               <span className="inline-flex items-center gap-1"><Shield className="w-4 h-4" /> Admin</span>
@@ -47,23 +95,6 @@ export const SiteHeader = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center rounded-md border">
-            <button
-              aria-label="Tiếng Việt"
-              className={`px-2 py-1 text-sm rounded-l-md ${lang === "vi" ? "bg-secondary" : ""}`}
-              onClick={() => setLang("vi")}
-            >
-              VI
-            </button>
-            <button
-              aria-label="English"
-              className={`px-2 py-1 text-sm rounded-r-md ${lang === "en" ? "bg-secondary" : ""}`}
-              onClick={() => setLang("en")}
-            >
-              EN
-            </button>
-          </div>
-
           {user ? (
             <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
               <LogOut className="w-4 h-4" />
@@ -88,35 +119,25 @@ export const SiteHeader = () => {
 
       {open && (
         <div className="md:hidden border-t">
-          <div className="container mx-auto py-2 grid grid-cols-2 gap-1">
-            {navItems.map((n) => (
-              <NavLink key={n.to} to={n.to} end className={linkCls} onClick={() => setOpen(false)}>
-                {t(n.key)}
-              </NavLink>
+          <div className="container mx-auto py-2 space-y-1">
+            <NavLink to="/" end className={linkCls} onClick={() => setOpen(false)}>
+              {t("nav.home")}
+            </NavLink>
+            {navGroups.map((group) => (
+              <div key={group.title} className="space-y-1">
+                <div className="px-3 py-2 text-sm font-medium text-muted-foreground">{group.title}</div>
+                {group.items.map((item) => (
+                  <NavLink key={item.to} to={item.to} className={linkCls} onClick={() => setOpen(false)}>
+                    <span className="ml-4">{t(item.key)}</span>
+                  </NavLink>
+                ))}
+              </div>
             ))}
             {isAdmin && (
               <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
-                Admin
+                <span className="ml-4">Admin</span>
               </NavLink>
             )}
-            <div className="col-span-2 flex items-center gap-2 pt-2">
-              <span className="text-sm">Language:</span>
-              <Button variant={lang === "vi" ? "secondary" : "outline"} size="sm" onClick={() => setLang("vi")}>
-                VI
-              </Button>
-              <Button variant={lang === "en" ? "secondary" : "outline"} size="sm" onClick={() => setLang("en")}>
-                EN
-              </Button>
-              {user ? (
-                <Button variant="outline" size="sm" onClick={() => { setOpen(false); signOut(); }}>
-                  Logout
-                </Button>
-              ) : (
-                <Link to="/auth" onClick={() => setOpen(false)} className="ml-auto">
-                  <Button size="sm">Login</Button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
       )}
