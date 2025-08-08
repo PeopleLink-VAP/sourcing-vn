@@ -1,4 +1,9 @@
 ### 2024-08-08
+- **Font System Update**: Replaced Sentic Medium with Roboto Medium for major text headings
+  - Updated CSS font-face definition from 'Sentic Text Medium' to 'Roboto Medium'
+  - Modified Tailwind config to use Roboto Medium font file instead of Sentic
+  - Maintained Sentic Display font for h1-h6 headings to preserve brand typography
+  - All navigation, buttons, and UI elements now use Roboto Medium for better readability
 - **Major Translation Update**: Comprehensive Vietnamese translations added for all pages and components
   - Added 80+ new translation keys covering all major UI elements
   - Updated SiteHeader navigation to use translations for all menus and descriptions

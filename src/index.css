@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: 'Sentic Text Medium';
-  src: url('/fonts/Sentic Text Medium.otf') format('opentype');
+  font-family: 'Roboto Medium';
+  src: url('/fonts/Roboto-Medium.ttf') format('truetype');
   font-weight: 500;
   font-display: swap;
 }

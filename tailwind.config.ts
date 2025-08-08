@@ -20,7 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'sentic': ['Sentic Display', 'serif'],
-				'sentic-medium': ['Sentic Text Medium', 'sans-serif'],
+				'sentic-medium': ['Roboto Medium', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
