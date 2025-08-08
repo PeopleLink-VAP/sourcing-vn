@@ -16,11 +16,6 @@ const dict: Dictionary = {
   "nav.cases": { vi: "Dự án Điển Hình", en: "Case Studies" },
   "nav.team": { vi: "Đội ngũ", en: "Team" },
   "nav.contact": { vi: "Liên hệ", en: "Contact" },
-  "hero.title": { vi: "Kết nối nhà cung cấp từ Việt Nam", en: "Source, Verify, Make in Vietnam" },
-  "hero.subtitle": {
-    vi: "Kết nối doanh nghiệp toàn cầu với nhà máy & tài năng tại Việt Nam.",
-    en: "Connecting global businesses with Vietnam factories and talents.",
-  },
   "cta.sourceProducts": { vi: "Tìm Nguồn Sản Phẩm", en: "Source Products" },
   "cta.hireTalents": { vi: "Thuê Tài Năng", en: "Hire Talents" },
   "footer.tagline": { vi: "Kết nối doanh nghiệp toàn cầu với nhà máy & tài năng tại Việt Nam.", en: "Connecting global businesses with Vietnam factories and talents." },
@@ -220,6 +215,71 @@ const dict: Dictionary = {
   "team.readyToWorkSubtitle": { vi: "Đội ngũ giàu kinh nghiệm của chúng tôi đã sẵn sàng giúp bạn điều hướng các thị trường sản xuất và nhân lực Việt Nam với sự tự tin và thành công.", en: "Our experienced team is ready to help you navigate Vietnamese manufacturing and talent markets with confidence and success." },
   "team.startYourProject": { vi: "Bắt đầu dự án của bạn", en: "Start Your Project" },
   "team.contactTeam": { vi: "Liên hệ với đội ngũ của chúng tôi", en: "Contact Our Team" },
+
+  // SEO - Homepage
+  "seo.title": { vi: "Tìm nguồn, Xác minh, Sản xuất tại Việt Nam | Sourcing.vn — Đối tác đáng tin cậy của bạn", en: "Source, Verify, Make in Vietnam | Sourcing.vn — Your Trusted Partner" },
+  "seo.description": { vi: "Đối tác đáng tin cậy của bạn cho các sản phẩm chất lượng cao & trợ lý ảo lành nghề từ Việt Nam. Kết nối với các nhà sản xuất và tài năng tốt nhất của Việt Nam.", en: "Your trusted partner for high-quality products & skilled virtual assistants from Vietnam. Connect with Vietnam's finest manufacturers and talent." },
+
+  // Homepage Hero Section
+  "hero.title": { vi: "Tìm nguồn, Xác minh, Sản xuất tại Việt Nam", en: "Source, Verify, Make in Vietnam" },
+  "hero.description": { vi: "Đối tác đáng tin cậy của bạn cho các sản phẩm chất lượng cao & trợ lý ảo lành nghề từ Việt Nam.", en: "Your Trusted Partner for High-Quality Products & Skilled Virtual Assistants from Vietnam." },
+  "hero.sourceProductsButton": { vi: "Tìm nguồn sản phẩm", en: "Source Products" },
+  "hero.hireTalentsButton": { vi: "Thuê nhân tài", en: "Hire Talents" },
+
+  // Introduction Section
+  "intro.title": { vi: "Kết nối bạn với những gì tốt nhất của Việt Nam", en: "Connecting You to Vietnam's Finest" },
+  "intro.description": { vi: "Được dẫn dắt bởi nhà sáng lập Duyên Phạm, Sourcing.vn chuyên kết nối khách hàng quốc tế với các nhà sản xuất và trợ lý ảo lành nghề tốt nhất của Việt Nam. Với hơn 10 năm kinh nghiệm, Duyên đã hỗ trợ hơn 30 cá nhân và thương hiệu, xây dựng một mạng lưới rộng lớn các nhà sản xuất Việt Nam. Các giá trị nền tảng của cô ấy về sự trung thực, trách nhiệm và 'tư duy của người sáng lập' đảm bảo cô ấy hiểu nhu cầu của khách hàng và giải quyết các vấn đề phức tạp một cách hiệu quả.", en: "Led by founder Duyen Pham, Sourcing.vn specializes in connecting international clients with Vietnam's best manufacturers and skilled virtual assistants. With 10+ years of experience, Duyen has assisted 30+ individuals and brands, building an extensive network of Vietnamese manufacturers. Her foundational values of honesty, responsibility, and 'founder's mindset' ensure she understands client needs and solves complex problems efficiently." },
+  "intro.button": { vi: "Tìm hiểu thêm về hành trình của Duyên", en: "Learn More About Duyen's Journey" },
+
+  // Why Vietnam Section
+  "whyVietnam.title": { vi: "Tại sao là Việt Nam? Trung tâm tìm nguồn toàn cầu tiếp theo", en: "Why Vietnam? The Next Global Sourcing Hub" },
+  "whyVietnam.benefits.rapidlyEmerging": { vi: "Nhanh chóng nổi lên như 'con hổ châu Á tiếp theo' trong lĩnh vực thuê ngoài", en: "Rapidly emerging as 'the next Tiger of Asia' in outsourcing" },
+  "whyVietnam.benefits.favorableTrade": { vi: "Hiệp định thương mại thuận lợi & điều hướng quy định dễ dàng hơn", en: "Favorable trade agreements & easier regulatory navigation" },
+  "whyVietnam.benefits.competitivePricing": { vi: "Giá cả cạnh tranh & lực lượng lao động có tay nghề cao", en: "Competitive pricing & a highly skilled labor force" },
+  "whyVietnam.benefits.diverseProductRange": { vi: "Phạm vi sản phẩm đa dạng với sự chú trọng mạnh mẽ vào chất lượng", en: "Diverse product range with a strong emphasis on quality" },
+  "whyVietnam.benefits.strategicProximity": { vi: "Vị trí chiến lược gần các điểm đến tìm nguồn quan trọng khác", en: "Strategic proximity to other key sourcing destinations" },
+
+  // Product Sourcing Section
+  "productSourcing.title": { vi: "Tìm nguồn sản phẩm đáng tin cậy", en: "Reliable Product Sourcing" },
+  "productSourcing.description": { vi: "Từ hàng dệt may và thủ công mỹ nghệ đến giày dép và đồ nội thất thân thiện với môi trường, chúng tôi kết nối bạn với các nhà sản xuất tốt nhất của Việt Nam. Dịch vụ trọn gói của chúng tôi bao gồm yêu cầu, lựa chọn nhà cung cấp, kiểm soát chất lượng và hậu cần.", en: "From textiles and handicrafts to footwear and eco-friendly furniture, we connect you with Vietnam's best manufacturers. Our end-to-end service covers inquiry, supplier selection, quality control, and logistics." },
+  "productSourcing.services.customizedFactoryLists": { vi: "Danh sách nhà máy tùy chỉnh", en: "Customized Factory Lists" },
+  "productSourcing.services.sampleHandling": { vi: "Xử lý mẫu", en: "Sample Handling" },
+  "productSourcing.services.qualityInspection": { vi: "Kiểm tra chất lượng", en: "Quality Inspection" },
+  "productSourcing.services.quotationAssistance": { vi: "Hỗ trợ báo giá", en: "Quotation Assistance" },
+  "productSourcing.services.logisticSupport": { vi: "Hỗ trợ hậu cần", en: "Logistic Support" },
+  "productSourcing.button": { vi: "Khám phá danh mục sản phẩm", en: "Explore Product Categories" },
+
+  // Talent Sourcing Section
+  "talentSourcing.title": { vi: "Thuê nhân tài Việt Nam hàng đầu", en: "Hire Top Vietnamese Talent" },
+  "talentSourcing.description": { vi: "Từ trợ lý ảo đến các freelancer chuyên biệt, chúng tôi kết nối bạn với các chuyên gia Việt Nam lành nghề sẵn sàng nâng cao hiệu quả kinh doanh của bạn. Quy trình sàng lọc nghiêm ngặt của chúng tôi đảm bảo bạn có được sự phù hợp nhất.", en: "From virtual assistants to specialized freelancers, we connect you with skilled Vietnamese professionals ready to boost your business efficiency. Our rigorous vetting process ensures you get the best fit." },
+  "talentSourcing.services.consultationMatching": { vi: "Tư vấn & Kết nối", en: "Consultation & Matching" },
+  "talentSourcing.services.trialPeriod": { vi: "Thời gian thử việc", en: "Trial Period" },
+  "talentSourcing.services.dedicatedSupport": { vi: "Hỗ trợ tận tình", en: "Dedicated Support" },
+  "talentSourcing.button": { vi: "Tìm trợ lý lý tưởng của bạn", en: "Find Your Ideal Assistant" },
+
+  // Testimonials Section
+  "testimonials.title": { vi: "Khách hàng của chúng tôi nói gì", en: "What Our Clients Say" },
+  "testimonials.testimonial1.content": { vi: "Người bán đáng kinh ngạc. Duyên đã vượt xa mong đợi của tôi. Giao tiếp và giao hàng của cô ấy vượt xa yêu cầu của tôi. Cảm ơn bạn!", en: "Incredible Seller. Duyen far exceeded my expectations. Her communication and delivery went above and beyond my requests. Thank you!" },
+  "testimonials.testimonial1.author": { vi: "Ông Awan", en: "Mr. Awan" },
+  "testimonials.testimonial1.location": { vi: "Canada", en: "Canada" },
+  "testimonials.testimonial2.content": { vi: "Thật vui khi được làm việc với cô ấy. Cô ấy rất nhanh chóng trong việc hoàn thành công việc và cô ấy đã trả lời tất cả các câu hỏi của tôi.", en: "It was a pleasure to work with her. She was very fast in delivering the work and she answered all my questions." },
+  "testimonials.testimonial2.author": { vi: "Ông David", en: "Mr. David" },
+  "testimonials.testimonial2.location": { vi: "Ý", en: "Italy" },
+
+  // News Section
+  "news.title": { vi: "Tin tức & Thông tin chi tiết", en: "News & Insights" },
+  "news.item1.headline": { vi: "Chính sách xuất khẩu mới của Việt Nam thúc đẩy ngành sản xuất", en: "Vietnam's New Export Policies to Boost Manufacturing Sector" },
+  "news.item1.snippet": { vi: "Các sáng kiến gần đây của chính phủ được thiết lập để tăng cường hơn nữa vị thế của Việt Nam trong chuỗi cung ứng toàn cầu, mang đến những cơ hội mới cho các đối tác quốc tế...", en: "Recent government initiatives are set to further enhance Vietnam's position in the global supply chain, offering new opportunities for international partners..." },
+  "news.item1.date": { vi: "Tháng 11 năm 2024", en: "November 2024" },
+  "news.item1.source": { vi: "Bộ Công Thương", en: "Ministry of Industry & Trade" },
+  "news.item2.headline": { vi: "Nhu cầu ngày càng tăng đối với hàng thủ công mỹ nghệ thân thiện với môi trường từ các nghệ nhân Việt Nam", en: "Growing Demand for Eco-Friendly Handicrafts from Vietnamese Artisans" },
+  "news.item2.snippet": { vi: "Sự chuyển dịch toàn cầu sang các sản phẩm bền vững đã chứng kiến sự gia tăng đáng kể về nhu cầu đối với các mặt hàng tre và mây có nguồn gốc từ các nhà cung cấp Việt Nam...", en: "The global shift towards sustainable products has seen a significant surge in demand for bamboo and rattan goods sourced from Vietnamese suppliers..." },
+  "news.item2.date": { vi: "Tháng 10 năm 2024", en: "October 2024" },
+  "news.item2.source": { vi: "Tạp chí Nghiên cứu Thị trường", en: "Market Research Quarterly" },
+  "news.item3.headline": { vi: "Vai trò của Trợ lý ảo trong việc hợp lý hóa chuỗi cung ứng quốc tế", en: "The Role of Virtual Assistants in Streamlining International Supply Chains" },
+  "news.item3.snippet": { vi: "Khi các doanh nghiệp tìm kiếm sự linh hoạt, Trợ lý ảo Việt Nam đang đóng một vai trò quan trọng trong việc quản lý hậu cần, truyền thông và điều phối dự án...", en: "As businesses seek agility, Vietnamese Virtual Assistants are playing a crucial role in managing logistics, communications, and project coordination..." },
+  "news.item3.date": { vi: "Tháng 10 năm 2024", en: "October 2024" },
+  "news.item3.source": { vi: "Outsourcing Today", en: "Outsourcing Today" },
 
   // Founder Page
   "founder.title": { vi: "Gặp gỡ Duyên Phạm", en: "Meet Duyen Pham" },

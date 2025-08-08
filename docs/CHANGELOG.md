@@ -1,4 +1,11 @@
 ### 2025-01-08
+- **Translation System Unification**: Refactored and unified translation approach for consistency
+  - Moved all homepage translations from separate JSON files back into LanguageContext.tsx
+  - Added comprehensive homepage content translations: SEO metadata, hero section, introduction, Why Vietnam benefits, product/talent sourcing details, testimonials, and news items
+  - Removed src/locales/en.json and src/locales/vi.json files to maintain single source of truth
+  - All translations now centrally managed in LanguageContext with type safety
+  - Homepage fully supports Vietnamese/English language switching with unified approach
+  - Improved developer experience with centralized translation management
 - **Major Admin Layout Restructure**: Created separate admin layout with collapsible sidebar design
   - Created new `AdminLayout` component with collapsible sidebar navigation
   - Replaced top navigation bar with dedicated admin sidebar for `/admin` routes

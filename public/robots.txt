@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Disallow member-only pages (replace with actual paths)
+# Disallow: /member-only-page/
