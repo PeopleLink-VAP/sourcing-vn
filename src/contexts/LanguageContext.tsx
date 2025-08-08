@@ -112,9 +112,11 @@ const dict: Dictionary = {
   "nav.teamDescription": { vi: "Gặp gỡ đội ngũ chuyên gia của chúng tôi", en: "Meet our expert team" },
 
   // Mobile navigation headers
+  "nav.mobile.news": { vi: "Tin tức", en: "News" },
   "nav.mobile.services": { vi: "Dịch vụ", en: "Services" },
   "nav.mobile.resources": { vi: "Tài nguyên", en: "Resources" },
   "nav.mobile.about": { vi: "Về chúng tôi", en: "About" },
+  "nav.mobile.language": { vi: "Ngôn ngữ:", en: "Language:" },
 
   // Header news category bar
   "nav.newsbar.productSourcing": { vi: "Dịch vụ Tìm Nguồn Sản Phẩm", en: "Product Sourcing Services" },

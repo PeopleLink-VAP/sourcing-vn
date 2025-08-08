@@ -1,4 +1,14 @@
 ### 2024-08-08
+- **Mobile Navigation Enhancement**: Updated mobile navigation structure and translations
+  - Moved News section to the top of mobile navigation for better prominence
+  - Added missing translation keys for mobile navigation labels (nav.mobile.news, nav.mobile.language)
+  - All mobile navigation headers now use proper translation keys instead of hardcoded text
+  - Language switcher label in mobile footer now properly translates ("Ngôn ngữ:" / "Language:")
+  - Reorganized mobile navigation to mirror desktop dropdown structure (News, About, Services, Resources)
+  - Added "About the Founder" link to mobile About section for consistency with desktop
+  - Implemented mobile language switcher (VI/EN) matching desktop functionality
+  - Enhanced mobile navigation footer with language selector and better user actions layout
+  - Mobile navigation now maintains the same categorization and hierarchy as desktop version
 - **Font System Update**: Replaced Sentic Medium with Roboto Medium for major text headings
   - Updated CSS font-face definition from 'Sentic Text Medium' to 'Roboto Medium'
   - Modified Tailwind config to use Roboto Medium font file instead of Sentic

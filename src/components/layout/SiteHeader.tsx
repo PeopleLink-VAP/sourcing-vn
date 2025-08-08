@@ -227,8 +227,31 @@ export const SiteHeader = () => {
 
                   {/* Mobile Navigation */}
                   <nav className="flex-1 p-4 space-y-2">
+                    {/* News Section (moved to top) */}
                     <div className="space-y-1">
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3">{t("nav.mobile.services")}</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3">{t("nav.mobile.news")}</h4>
+                      <NavLink to="/news" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Newspaper className="w-5 h-5 mr-3 text-accent" />
+                        <span>{t("nav.news")}</span>
+                      </NavLink>
+                    </div>
+
+                    {/* About Section */}
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.about")}</h4>
+                      <NavLink to="/founder" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Users className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.founderTitle")}</span>
+                      </NavLink>
+                      <NavLink to="/team" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Users className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.team")}</span>
+                      </NavLink>
+                    </div>
+
+                    {/* Services Section */}
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.services")}</h4>
                       <NavLink to="/product-sourcing" className={mobileNavItemClass} onClick={() => setOpen(false)}>
                         <Factory className="w-5 h-5 mr-3 text-primary" />
                         <span>{t("nav.product")}</span>
@@ -239,12 +262,9 @@ export const SiteHeader = () => {
                       </NavLink>
                     </div>
 
+                    {/* Resources Section */}
                     <div className="space-y-1">
                       <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.resources")}</h4>
-                      <NavLink to="/news" className={mobileNavItemClass} onClick={() => setOpen(false)}>
-                        <Newspaper className="w-5 h-5 mr-3 text-accent" />
-                        <span>{t("nav.news")}</span>
-                      </NavLink>
                       <NavLink to="/case-studies" className={mobileNavItemClass} onClick={() => setOpen(false)}>
                         <Briefcase className="w-5 h-5 mr-3 text-primary" />
                         <span>{t("nav.cases")}</span>
@@ -258,25 +278,42 @@ export const SiteHeader = () => {
                         <span>{t("nav.partners")}</span>
                       </NavLink>
                     </div>
-
-                    <div className="space-y-1">
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">{t("nav.mobile.about")}</h4>
-                      <NavLink to="/team" className={mobileNavItemClass} onClick={() => setOpen(false)}>
-                        <Users className="w-5 h-5 mr-3 text-primary" />
-                        <span>{t("nav.team")}</span>
-                      </NavLink>
-                    </div>
                   </nav>
 
                   {/* Mobile Footer */}
-                  {user && (
+                  <div className="mt-auto">
+                    {/* Language Switcher */}
                     <div className="p-4 border-t border-border/10">
-                      <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="w-full justify-start font-sentic-medium">
-                        <LogOut className="w-4 h-4 mr-2" />
-                        {t("auth.logout")}
-                      </Button>
+                      <div className="flex items-center justify-center space-x-1">
+                        <span className="text-sm text-muted-foreground mr-3">{t("nav.mobile.language")}</span>
+                        <button
+                          className={`px-3 py-2 text-sm rounded-lg transition-colors font-sentic-medium ${
+                            lang === "vi" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                          }`}
+                          onClick={() => setLang("vi")}
+                        >
+                          VI
+                        </button>
+                        <button
+                          className={`px-3 py-2 text-sm rounded-lg transition-colors font-sentic-medium ${
+                            lang === "en" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                          }`}
+                          onClick={() => setLang("en")}
+                        >
+                          EN
+                        </button>
+                      </div>
                     </div>
-                  )}
+                    {/* User actions */}
+                    {user && (
+                      <div className="p-4 border-t border-border/10">
+                        <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="w-full justify-start font-sentic-medium">
+                          <LogOut className="w-4 h-4 mr-2" />
+                          {t("auth.logout")}
+                        </Button>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
