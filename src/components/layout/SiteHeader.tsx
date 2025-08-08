@@ -19,8 +19,10 @@ export const SiteHeader = () => {
   }, [location]);
 
   const navItemClass = `font-sentic-medium text-sm transition-all duration-300 hover:text-accent ${
-    isNewsMode ? 'text-white hover:text-white/80' : 'text-foreground'
+    isNewsMode ? 'text-black hover:text-black/80' : 'text-foreground'
   }`;
+
+  const triggerClass = `${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10 data-[state=open]:bg-accent/10`;
 
   const mobileNavItemClass = "flex items-center px-4 py-3 rounded-lg text-sm font-sentic-medium transition-colors hover:bg-accent hover:text-accent-foreground border-b border-border/10 last:border-0";
 
@@ -46,10 +48,9 @@ export const SiteHeader = () => {
             <NavigationMenu>
               <NavigationMenuList className="space-x-1">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                  <NavigationMenuTrigger className={triggerClass}>
                     <Factory className="w-4 h-4 mr-2" />
                     {t("nav.services")}
-                    <ChevronDown className="w-3 h-3 ml-1" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 md:w-[420px] lg:w-[520px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
@@ -87,10 +88,9 @@ export const SiteHeader = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                  <NavigationMenuTrigger className={triggerClass}>
                     <FileText className="w-4 h-4 mr-2" />
                     {t("nav.resources")}
-                    <ChevronDown className="w-3 h-3 ml-1" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 md:w-[420px] lg:w-[520px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
@@ -137,14 +137,13 @@ export const SiteHeader = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                  <NavigationMenuTrigger className={triggerClass}>
                     <Users className="w-4 h-4 mr-2" />
                     {t("nav.about")}
-                    <ChevronDown className="w-3 h-3 ml-1" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 md:w-[380px] lg:w-[450px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
-                      <div className="row-span-2">
+                      <div className="row-span-3">
                         <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-accent/10 to-primary/5 p-6 no-underline outline-none focus:shadow-md">
                           <Users className="h-8 w-8 text-primary mb-3" />
                           <div className="mb-2 text-lg font-sentic font-semibold text-primary">
@@ -155,6 +154,15 @@ export const SiteHeader = () => {
                           </p>
                         </div>
                       </div>
+                      <NavLink 
+                        to="/founder" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">About the Founder</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Meet Duyen Pham and her story
+                        </p>
+                      </NavLink>
                       <NavLink 
                         to="/team" 
                         className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import Founder from "./pages/Founder";
 import NotFound from "./pages/NotFound";
 import ProductSourcing from "./pages/ProductSourcing";
 import TalentSourcing from "./pages/TalentSourcing";
@@ -42,6 +43,7 @@ const App = () => (
               <SiteHeader />
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/founder" element={<Founder />} />
                 <Route path="/product-sourcing" element={<ProductSourcing />} />
                 <Route path="/talent-sourcing" element={<TalentSourcing />} />
                 <Route path="/news" element={<News />} />
