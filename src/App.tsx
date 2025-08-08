@@ -25,7 +25,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { RequireAdmin, RequireAuth } from "./components/auth/guards";
 
 const queryClient = new QueryClient();
-const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
