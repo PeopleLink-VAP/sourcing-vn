@@ -16,7 +16,7 @@ const dict: Dictionary = {
   "nav.cases": { vi: "Case Studies", en: "Case Studies" },
   "nav.team": { vi: "Đội ngũ", en: "Team" },
   "nav.contact": { vi: "Liên hệ", en: "Contact" },
-  "hero.title": { vi: "Outsourcing Không Biên Giới", en: "Outsourcing Without Borders" },
+  "hero.title": { vi: "Kết nối nhà cung cấp từ Việt Nam", en: "Source, Verify, Make in Vietnam" },
   "hero.subtitle": {
     vi: "Kết nối doanh nghiệp toàn cầu với nhà máy & tài năng tại Việt Nam.",
     en: "Connecting global businesses with Vietnam factories and talents.",
