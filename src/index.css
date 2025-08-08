@@ -61,6 +61,11 @@ All colors MUST be HSL.
     --shadow-elegant: 0 10px 30px -10px hsl(var(--brand) / 0.35);
     --shadow-glow: 0 12px 40px -6px hsl(var(--highlight) / 0.35);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* News mode */
+    --news-bg: 45 100% 50%;            /* Orange #FFBB00 */
+    --news-bg-alpha: 45 100% 50% / 0.9; /* Translucent orange */
+    --news-text: 225 67% 15%;          /* Dark blue for contrast */
   }
 
   .dark {
