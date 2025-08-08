@@ -49,6 +49,47 @@ export const SiteHeader = () => {
               <NavigationMenuList className="space-x-1">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={triggerClass}>
+                    <Users className="w-4 h-4 mr-2" />
+                    {t("nav.about")}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 md:w-[380px] lg:w-[450px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
+                      <div className="row-span-3">
+                        <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-accent/10 to-primary/5 p-6 no-underline outline-none focus:shadow-md">
+                          <Users className="h-8 w-8 text-primary mb-3" />
+                          <div className="mb-2 text-lg font-sentic font-semibold text-primary">
+                            {t("nav.about")}
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            {t("nav.aboutDescription")}
+                          </p>
+                        </div>
+                      </div>
+                      <NavLink 
+                        to="/founder" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.founderTitle")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          {t("nav.founderDescription")}
+                        </p>
+                      </NavLink>
+                      <NavLink 
+                        to="/team" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.team")}
+                        </div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          {t("nav.teamDescription")}
+                        </p>
+                      </NavLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={triggerClass}>
                     <Factory className="w-4 h-4 mr-2" />
                     {t("nav.services")}
                   </NavigationMenuTrigger>
@@ -130,46 +171,6 @@ export const SiteHeader = () => {
                         <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.partners")}</div>
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
                           {t("nav.partnersDescription")}
-                        </p>
-                      </NavLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={triggerClass}>
-                    <Users className="w-4 h-4 mr-2" />
-                    {t("nav.about")}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 md:w-[380px] lg:w-[450px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
-                      <div className="row-span-3">
-                        <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-accent/10 to-primary/5 p-6 no-underline outline-none focus:shadow-md">
-                          <Users className="h-8 w-8 text-primary mb-3" />
-                          <div className="mb-2 text-lg font-sentic font-semibold text-primary">
-                            {t("nav.about")}
-                          </div>
-                          <p className="text-sm leading-tight text-muted-foreground">
-                            {t("nav.aboutDescription")}
-                          </p>
-                        </div>
-                      </div>
-                      <NavLink 
-                        to="/founder" 
-                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
-                      >
-                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.founderTitle")}</div>
-                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          {t("nav.founderDescription")}
-                        </p>
-                      </NavLink>
-                      <NavLink 
-                        to="/team" 
-                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
-                      >
-                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.team")}</div>
-                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          {t("nav.teamDescription")}
                         </p>
                       </NavLink>
                     </div>

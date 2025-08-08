@@ -25,6 +25,7 @@
   - Added translations for news category bar and all navigation elements
   - Improved consistency between English and Vietnamese content
   - All pages and components are now fully EN/VI bilingual
+- Moved 'About' navigation item to the first position in the top-nav menu.
 
 ### 2024-05-20
 - Implemented automatic scrolling to the top of the page when navigating to a new route.

@@ -245,7 +245,7 @@
 - SEO component structure
 
 ### 📝 Technical Debt
-- [ ] Update package.json name from "vite_react_shadcn_ts" to "sourcing-vn"
+
 - [ ] Add proper TypeScript strict mode configuration
 - [ ] Implement comprehensive error boundaries
 - [ ] Add proper logging and monitoring
