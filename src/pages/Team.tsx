@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { useI18n } from "@/contexts/LanguageContext";
 import { 
   Users, 
   Star, 
@@ -17,6 +18,7 @@ import {
 } from "lucide-react";
 
 const Team = () => {
+  const { t } = useI18n();
   const teamMembers = [
     {
       name: "Duyen Pham",
@@ -63,23 +65,23 @@ const Team = () => {
   const teamValues = [
     {
       icon: Heart,
-      title: "Client-First Approach",
-      description: "Every decision is made with client success in mind"
+      title: t("team.clientFirst"),
+      description: t("team.clientFirstDesc")
     },
     {
       icon: Shield,
-      title: "Trust & Transparency",
-      description: "Building lasting relationships through honest communication"
+      title: t("team.trustTransparency"),
+      description: t("team.trustTransparencyDesc")
     },
     {
       icon: Target,
-      title: "Results-Driven",
-      description: "Focused on delivering measurable outcomes for every project"
+      title: t("team.resultsDriven"),
+      description: t("team.resultsDrivenDesc")
     },
     {
       icon: Globe,
-      title: "Local Expertise",
-      description: "Deep understanding of Vietnamese business culture and practices"
+      title: t("team.localExpertise"),
+      description: t("team.localExpertiseDesc")
     }
   ];
 
@@ -94,15 +96,14 @@ const Team = () => {
       <section className="bg-gradient-to-br from-background to-secondary/20 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold text-primary mb-6">
-            Meet Our Expert Team
+            {t("team.title")}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            A dedicated service team combining local Vietnamese expertise with international business experience 
-            to deliver exceptional sourcing results.
+            {t("team.subtitle")}
           </p>
           <Link to="/founder">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Learn About Our Founder
+              {t("team.learnFounder")}
             </Button>
           </Link>
         </div>
@@ -112,9 +113,9 @@ const Team = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Team Values</h2>
+            <h2 className="text-4xl font-bold text-primary mb-4">{t("team.values")}</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Shared principles that drive our commitment to excellence in every project
+              {t("team.valuesSubtitle")}
             </p>
           </div>
 
@@ -138,9 +139,9 @@ const Team = () => {
       <section className="py-16 bg-secondary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Service Team</h2>
+            <h2 className="text-4xl font-bold text-primary mb-4">{t("team.serviceTeam")}</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Meet the specialists who make your sourcing projects successful
+              {t("team.serviceTeamSubtitle")}
             </p>
           </div>
 
@@ -172,7 +173,7 @@ const Team = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
                   
                   <div>
-                    <h4 className="font-semibold text-sm text-primary mb-2">Specialties:</h4>
+                    <h4 className="font-semibold text-sm text-primary mb-2">{t("team.specialties")}</h4>
                     <div className="flex flex-wrap gap-2">
                       {member.specialties.map((specialty, idx) => (
                         <Badge key={idx} variant="secondary" className="text-xs">
@@ -183,7 +184,7 @@ const Team = () => {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-sm text-primary mb-2">Key Achievements:</h4>
+                    <h4 className="font-semibold text-sm text-primary mb-2">{t("team.achievements")}</h4>
                     <div className="space-y-1">
                       {member.achievements.map((achievement, idx) => (
                         <div key={idx} className="flex items-center text-xs text-muted-foreground">
@@ -204,9 +205,9 @@ const Team = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Collective Expertise</h2>
+            <h2 className="text-4xl font-bold text-primary mb-4">{t("team.collectiveExpertise")}</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Combined capabilities that ensure comprehensive support for your sourcing needs
+              {t("team.collectiveExpertiseSubtitle")}
             </p>
           </div>
 
@@ -216,7 +217,7 @@ const Team = () => {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-accent" />
                 </div>
-                <CardTitle className="text-primary">Product Sourcing Excellence</CardTitle>
+                <CardTitle className="text-primary">{t("team.productSourcingExcellence")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
@@ -233,7 +234,7 @@ const Team = () => {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-accent" />
                 </div>
-                <CardTitle className="text-primary">Talent Sourcing Network</CardTitle>
+                <CardTitle className="text-primary">{t("team.talentSourcingNetwork")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
@@ -250,7 +251,7 @@ const Team = () => {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-accent" />
                 </div>
-                <CardTitle className="text-primary">International Support</CardTitle>
+                <CardTitle className="text-primary">{t("team.internationalSupport")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
@@ -268,18 +269,17 @@ const Team = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Work with Our Team?</h2>
+          <h2 className="text-4xl font-bold mb-6">{t("team.readyToWork")}</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Our experienced team is ready to help you navigate Vietnamese manufacturing and talent markets 
-            with confidence and success.
+            {t("team.readyToWorkSubtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary">
-              Start Your Project
+              {t("team.startYourProject")}
             </Button>
             <Link to="/contact">
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Contact Our Team
+                {t("team.contactTeam")}
               </Button>
             </Link>
           </div>

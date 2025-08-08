@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,6 +26,7 @@ import {
 } from "lucide-react";
 
 const Catalogs = () => {
+  const { t } = useI18n();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -41,32 +43,32 @@ const Catalogs = () => {
   const productCategories = [
     {
       icon: ShoppingBag,
-      title: "Bags & Luggage",
-      description: "From fashion accessories to functional travel gear",
+      title: t("catalogs.categories.bags"),
+      description: t("catalogs.categories.bagsDesc"),
       examples: ["Fashion handbags", "Travel luggage", "Backpacks", "Business briefcases", "Laptop bags"]
     },
     {
       icon: Shirt,
-      title: "Clothing & Textiles",
-      description: "Including medical wear, apparel, and textile goods",
+      title: t("catalogs.categories.clothing"),
+      description: t("catalogs.categories.clothingDesc"),
       examples: ["Medical wear", "Jackets for US brands", "Sportswear", "Casual apparel", "Technical textiles"]
     },
     {
       icon: Wrench,
-      title: "Plastic & Metal Products",
-      description: "Specialized components and fabrication",
+      title: t("catalogs.categories.plastic"),
+      description: t("catalogs.categories.plasticDesc"),
       examples: ["Plastic handles", "Metal components", "Injection molding", "CNC parts", "Hardware"]
     },
     {
       icon: Users,
-      title: "Footwear",
-      description: "From sport shoes to general footwear for export",
+      title: t("catalogs.categories.footwear"),
+      description: t("catalogs.categories.footwearDesc"),
       examples: ["Sport shoes", "Casual footwear", "Work boots", "Sandals", "Children's shoes"]
     },
     {
       icon: Leaf,
-      title: "Eco-Friendly Products",
-      description: "Sustainable bamboo, rattan, and green alternatives",
+      title: t("catalogs.categories.eco"),
+      description: t("catalogs.categories.ecoDesc"),
       examples: ["Bamboo furniture", "Rattan products", "Sustainable packaging", "Eco-friendly home goods", "Green alternatives"]
     }
   ];
@@ -74,23 +76,23 @@ const Catalogs = () => {
   const vietnamBenefits = [
     {
       icon: Target,
-      title: "Competitive Prices",
-      description: "Cost-effective manufacturing without compromising quality"
+      title: t("catalogs.competitivePrices"),
+      description: t("catalogs.competitivePricesDesc")
     },
     {
       icon: Users,
-      title: "Skilled Labor",
-      description: "Experienced workforce with attention to detail"
+      title: t("catalogs.skilledLabor"),
+      description: t("catalogs.skilledLaborDesc")
     },
     {
       icon: Factory,
-      title: "Flexible Suppliers",
-      description: "Adaptable manufacturers for various requirements"
+      title: t("catalogs.flexibleSuppliers"),
+      description: t("catalogs.flexibleSuppliersDesc")
     },
     {
       icon: Globe,
-      title: "Trade Agreements",
-      description: "Favorable export conditions and regulations"
+      title: t("catalogs.tradeAgreements"),
+      description: t("catalogs.tradeAgreementsDesc")
     }
   ];
 
@@ -158,21 +160,18 @@ const Catalogs = () => {
       <section className="bg-gradient-to-br from-background to-secondary/20 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold text-primary mb-6">
-            Your Gateway to Quality Vietnamese Products
+            {t("catalogs.title")}
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
-            At Sourcing.vn, led by founder Duyen Pham, we specialize in connecting international clients 
-            with high-quality, reliable products proudly made in Vietnam. Our extensive network of Vietnamese 
-            manufacturers, combined with our founder's 10 years of experience and a 'founder's mindset,' 
-            ensures honest, responsible, and efficient sourcing for your business.
+            {t("catalogs.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <Send className="w-5 h-5 mr-2" />
-              Request Custom Catalog
+              {t("catalogs.requestCatalog")}
             </Button>
             <Button size="lg" variant="outline">
-              View Product Categories
+              {t("catalogs.viewCategories")}
             </Button>
           </div>
         </div>
@@ -182,9 +181,9 @@ const Catalogs = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Why Source from Vietnam?</h2>
+            <h2 className="text-4xl font-bold text-primary mb-4">{t("catalogs.whyVietnam")}</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Vietnam offers unique advantages for international businesses seeking quality manufacturing partners
+              {t("catalogs.whyVietnamSubtitle")}
             </p>
           </div>
 

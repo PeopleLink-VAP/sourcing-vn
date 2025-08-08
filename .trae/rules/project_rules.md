@@ -1,7 +1,7 @@
 # Product Features
 - Project features are found in docs/OVERVIEW.md
 - Features that has been planned will be kept in docs/TODO.md; make sure to update and checked the list whenever got the chance.
-- Add appropriate journal entries to file docs/CHANGELOG.md to keep track of major and minor changes, including date and timestamp, use layman terms if possible, concise reporting.
+- Append appropriate journal entries to file docs/CHANGELOG.md to keep track of major and minor changes, including date and timestamp, use layman terms if possible, concise reporting.
 - Pro-actively ask to commit changes with proper commit message after each tasks done.
 
 # Software Development Rules

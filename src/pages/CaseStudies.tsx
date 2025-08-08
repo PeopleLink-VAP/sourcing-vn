@@ -2,52 +2,54 @@ import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/contexts/LanguageContext";
 import reimerImage from "@/assets/case-studies/reimer-jackets.jpg";
 import nicoleImage from "@/assets/case-studies/nicole-bags.jpg";
 import andyImage from "@/assets/case-studies/andy-plastic-handles.jpg";
 import vuKohlerImage from "@/assets/case-studies/vu-kohler-eco-products.jpg";
 
-const caseStudies = [
-  {
-    id: "reimer-jackets",
-    title: "Reimer (Mexico) - Jacket Manufacturing",
-    image: reimerImage,
-    date: "May 2023",
-    location: "Mexico City, Mexico",
-    excerpt: "Assisted Reimer, a Mexico-based brand, in successfully identifying and connecting with experienced jacket manufacturers in Vietnam. Our on-the-ground support ensured deep market understanding and valuable partnerships.",
-    link: "/case-studies/reimer-jackets"
-  },
-  {
-    id: "nicole-bags",
-    title: "Nicole (Australia) - Waterproof Bags",
-    image: nicoleImage,
-    date: "June 2023",
-    location: "Sydney, Australia",
-    excerpt: "Partnered with Nicole from Australia to source high-quality, waterproof bags tailored for mothers. Our negotiation and sample handling led to a satisfied client placing a significant order for 1,000 units.",
-    link: "/case-studies/nicole-bags"
-  },
-  {
-    id: "andy-plastic-handles",
-    title: "Andy (Australia) - Plastic Handles",
-    image: andyImage,
-    date: "Mid 2023",
-    location: "Melbourne, Australia",
-    excerpt: "Facilitated Andy's shift of plastic handle production from China to Vietnam, sourcing manufacturers capable of producing over 10,000 units competitively. A successful factory visit and order placement solidified this strategic move.",
-    link: "/case-studies/andy-plastic-handles"
-  },
-  {
-    id: "vu-kohler-eco-products",
-    title: "Vu Kohler (U.S.A) - Eco-Friendly Products",
-    image: vuKohlerImage,
-    date: "Late 2023",
-    location: "Colorado, USA",
-    excerpt: "Sourced a diverse range of eco-friendly bamboo and rattan products for Vu Kohler's Amazon store in the USA. Client was highly impressed with Vietnamese factory capacity, leading to immediate order placement.",
-    link: "/case-studies/vu-kohler-eco-products"
-  }
-];
-
 const CaseStudies = () => {
+  const { t } = useI18n();
   const [scrollY, setScrollY] = useState(0);
+
+  const caseStudies = [
+    {
+      id: "reimer-jackets",
+      title: t("reimer.title"),
+      image: reimerImage,
+      date: t("reimer.date"),
+      location: t("reimer.location"),
+      excerpt: t("reimer.excerpt"),
+      link: "/case-studies/reimer-jackets"
+    },
+    {
+      id: "nicole-bags",
+      title: "Nicole (Australia) - Waterproof Bags",
+      image: nicoleImage,
+      date: "June 2023",
+      location: "Sydney, Australia",
+      excerpt: "Partnered with Nicole from Australia to source high-quality, waterproof bags tailored for mothers. Our negotiation and sample handling led to a satisfied client placing a significant order for 1,000 units.",
+      link: "/case-studies/nicole-bags"
+    },
+    {
+      id: "andy-plastic-handles",
+      title: "Andy (Australia) - Plastic Handles",
+      image: andyImage,
+      date: "Mid 2023",
+      location: "Melbourne, Australia",
+      excerpt: "Facilitated Andy's shift of plastic handle production from China to Vietnam, sourcing manufacturers capable of producing over 10,000 units competitively. A successful factory visit and order placement solidified this strategic move.",
+      link: "/case-studies/andy-plastic-handles"
+    },
+    {
+      id: "vu-kohler-eco-products",
+      title: "Vu Kohler (U.S.A) - Eco-Friendly Products",
+      image: vuKohlerImage,
+      date: "Late 2023",
+      location: "Colorado, USA",
+      excerpt: "Sourced a diverse range of eco-friendly bamboo and rattan products for Vu Kohler's Amazon store in the USA. Client was highly impressed with Vietnamese factory capacity, leading to immediate order placement.",
+      link: "/case-studies/vu-kohler-eco-products"
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -66,10 +68,12 @@ const CaseStudies = () => {
       <section className="relative pt-20 pb-16 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
-            Our Partnerships in Action
+            {t("caseStudies.title")}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Building trust and credibility through successful product sourcing projects that demonstrate our commitment to <span className="text-primary font-semibold">trust, clarity, and Vietnamese expertise</span>.
+            {t("caseStudies.subtitle").split(t("caseStudies.trustClarity")).map((part, index, array) => (
+              index === array.length - 1 ? part : <>{part}<span className="text-primary font-semibold">{t("caseStudies.trustClarity")}</span></>
+            ))}
           </p>
         </div>
       </section>
@@ -117,7 +121,7 @@ const CaseStudies = () => {
                   </p>
                   <Button asChild variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <Link to={study.link}>
-                      Learn More About This Project
+                      {t("caseStudies.learnMore")}
                     </Link>
                   </Button>
                 </div>
@@ -135,14 +139,14 @@ const CaseStudies = () => {
       <section className="py-16 px-4 bg-primary/5">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
-            Ready to Start Your Own Success Story?
+            {t("caseStudies.readyTitle")}
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let us help you source high-quality products from Vietnam with the same dedication and expertise shown in these partnerships.
+            {t("caseStudies.readySubtitle")}
           </p>
           <Button asChild size="lg" className="px-8">
             <Link to="/contact">
-              Start Your Project Today
+              {t("caseStudies.startProject")}
             </Link>
           </Button>
         </div>

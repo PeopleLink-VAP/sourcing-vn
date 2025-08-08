@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sentic': ['Sentic Display', 'serif'],
+				'sentic': ['Roboto', 'sans-serif'],
 				'sentic-medium': ['Roboto Medium', 'sans-serif'],
 			},
 			colors: {

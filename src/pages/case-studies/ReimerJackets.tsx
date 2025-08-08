@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Calendar, Package, Users } from "lucide-react";
+import { useI18n } from "@/contexts/LanguageContext";
 import reimerImage from "@/assets/case-studies/reimer-jackets.jpg";
 
 const ReimerJackets = () => {
+  const { t } = useI18n();
   return (
     <main className="container mx-auto py-10 px-4">
       <SEO
@@ -18,7 +20,7 @@ const ReimerJackets = () => {
         <Button variant="ghost" asChild className="mb-4">
           <Link to="/case-studies" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
-            Back to Case Studies
+            {t("caseStudy.backToCases")}
           </Link>
         </Button>
       </div>
@@ -28,24 +30,24 @@ const ReimerJackets = () => {
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           <div className="lg:w-1/2">
             <h1 className="text-4xl font-bold text-primary mb-4">
-              Reimer Jackets Manufacturing Success
+              {t("reimer.title")}
             </h1>
             <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
-                May 2023
+                {t("reimer.date")}
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                Mexico City, Mexico
+                {t("reimer.location")}
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                Fashion & Apparel
+                {t("reimer.industry")}
               </div>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Assisted Reimer, a Mexico-based brand, in successfully identifying and connecting with experienced jacket manufacturers in Vietnam. Our on-the-ground support ensured deep market understanding and valuable partnerships.
+              {t("reimer.excerpt")}
             </p>
           </div>
           <div className="lg:w-1/2">
@@ -67,7 +69,7 @@ const ReimerJackets = () => {
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <Card>
           <CardHeader>
-            <CardTitle className="text-primary">The Challenge</CardTitle>
+            <CardTitle className="text-primary">{t("caseStudy.challenge")}</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3 text-muted-foreground">
@@ -82,7 +84,7 @@ const ReimerJackets = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-primary">Our Solution</CardTitle>
+            <CardTitle className="text-primary">{t("caseStudy.solution")}</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3 text-muted-foreground">
@@ -99,7 +101,7 @@ const ReimerJackets = () => {
       {/* Process */}
       <Card className="mb-12">
         <CardHeader>
-          <CardTitle className="text-primary">Our Process</CardTitle>
+          <CardTitle className="text-primary">{t("caseStudy.process")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid md:grid-cols-3 gap-6">
@@ -137,12 +139,12 @@ const ReimerJackets = () => {
       {/* Results */}
       <Card className="mb-12 bg-primary/5">
         <CardHeader>
-          <CardTitle className="text-primary">Results Achieved</CardTitle>
+          <CardTitle className="text-primary">{t("caseStudy.results")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-lg mb-3">Successful Outcomes</h3>
+              <h3 className="font-semibold text-lg mb-3">{t("caseStudy.outcomes")}</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>✓ Connected with 3 qualified jacket manufacturers</li>
                 <li>✓ Established clear communication channels</li>
@@ -152,7 +154,7 @@ const ReimerJackets = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-3">Client Feedback</h3>
+              <h3 className="font-semibold text-lg mb-3">{t("caseStudy.feedback")}</h3>
               <blockquote className="italic text-muted-foreground border-l-4 border-primary pl-4">
                 "Sourcing.vn's on-the-ground support was invaluable. They not only found us great manufacturers but helped us understand the Vietnamese market dynamics. The cultural bridge they provided made all the difference."
               </blockquote>
@@ -165,14 +167,14 @@ const ReimerJackets = () => {
       {/* CTA */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-primary mb-4">
-          Ready to Start Your Manufacturing Journey?
+          {t("caseStudy.readyManufacturing")}
         </h2>
         <p className="text-muted-foreground mb-6">
-          Let us help you connect with the right Vietnamese manufacturers for your products.
+          {t("caseStudy.readyManufacturingSubtitle")}
         </p>
         <Button asChild size="lg">
           <Link to="/contact">
-            Start Your Project
+            {t("caseStudy.startYourProject")}
           </Link>
         </Button>
       </div>
