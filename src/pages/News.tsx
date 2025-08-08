@@ -92,10 +92,42 @@ const News = () => {
         description="Curated updates on import/export policies, outsourcing trends, and Vietnam market developments."
       />
       
-      <div className="container mx-auto py-6">
-        <div className="flex gap-6">
-          {/* Sidebar */}
-          <aside className="w-64 space-y-6">
+      <div className="container mx-auto py-4 px-4 sm:py-6">
+        {/* Mobile Category Filter */}
+        <div className="lg:hidden mb-6">
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <h3 className="font-semibold text-gray-900 mb-3">{t("news.categories")}</h3>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setSelectedCategory("All")}
+                className={`px-3 py-2 rounded text-sm transition-colors ${
+                  selectedCategory === "All" 
+                    ? "bg-primary text-primary-foreground" 
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {t("news.allNews")}
+              </button>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-3 py-2 rounded text-xs sm:text-sm transition-colors ${
+                    selectedCategory === category 
+                      ? "bg-primary text-primary-foreground" 
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  {category.length > 20 ? category.substring(0, 20) + '...' : category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Desktop Sidebar */}
+          <aside className="hidden lg:block w-64 space-y-6">
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <h3 className="font-semibold text-gray-900 mb-3">{t("news.categories")}</h3>
               <div className="space-y-2">
@@ -130,13 +162,13 @@ const News = () => {
           <div className="flex-1 space-y-8">
             {/* Today's Headlines */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("news.todayHeadlines")}</h2>
-              <div className="space-y-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">{t("news.todayHeadlines")}</h2>
+              <div className="space-y-4 sm:space-y-6">
                 {todaysHeadlines.map((article) => (
                   <article key={article.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <div className="flex gap-4 p-6">
+                    <div className="flex flex-col sm:flex-row gap-4 p-4 sm:p-6">
                       {article.image && (
-                        <div className="w-48 h-32 flex-shrink-0">
+                        <div className="w-full sm:w-48 h-48 sm:h-32 flex-shrink-0">
                           <img 
                             src={article.image} 
                             alt={article.title}
@@ -150,17 +182,18 @@ const News = () => {
                             {article.category.toUpperCase()}
                           </span>
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
                           {article.title}
                         </h3>
                         {article.excerpt && (
-                          <p className="text-gray-600 mb-4 line-clamp-3">{article.excerpt}</p>
+                          <p className="text-gray-600 mb-4 line-clamp-3 text-sm sm:text-base">{article.excerpt}</p>
                         )}
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500">
                             <div className="flex items-center gap-1">
                               <User className="w-4 h-4" />
-                              {article.author}
+                              <span className="hidden sm:inline">{article.author}</span>
+                              <span className="sm:hidden">{article.author.split(' ')[0]}</span>
                             </div>
                             <div className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
@@ -177,7 +210,7 @@ const News = () => {
                           </div>
                           <button
                             onClick={() => toggleSaved(article.id)}
-                            className={`p-2 rounded-full transition-colors ${
+                            className={`self-start sm:self-center p-2 rounded-full transition-colors ${
                               savedArticles.includes(article.id)
                                 ? "text-accent bg-accent/10"
                                 : "text-gray-400 hover:text-gray-600"
@@ -195,26 +228,27 @@ const News = () => {
 
             {/* Featured News */}
             <section>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">{t("news.featuredNews")}</h2>
-                <button className="text-primary hover:text-primary/80 font-medium">{t("news.seeAll")}</button>
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{t("news.featuredNews")}</h2>
+                <button className="text-primary hover:text-primary/80 font-medium text-sm sm:text-base">{t("news.seeAll")}</button>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
                 {featuredNews.map((article) => (
-                  <article key={article.id} className="bg-white rounded-lg shadow-sm p-6">
+                  <article key={article.id} className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                     <div className="mb-3">
                       <span className="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded">
                         {article.category.split(' ')[0].toUpperCase()}
                       </span>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-3">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 line-clamp-3">
                       {article.title}
                     </h3>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <div className="flex items-center gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-gray-500">
+                      <div className="flex items-center gap-3 sm:gap-4">
                         <div className="flex items-center gap-1">
                           <User className="w-4 h-4" />
-                          {article.author}
+                          <span className="hidden sm:inline">{article.author}</span>
+                          <span className="sm:hidden">{article.author.split(' ')[0]}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
@@ -244,8 +278,8 @@ const News = () => {
             </section>
           </div>
 
-          {/* Right Sidebar */}
-          <aside className="w-80 space-y-6">
+          {/* Right Sidebar - Desktop Only */}
+          <aside className="hidden xl:block w-80 space-y-6">
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-gray-900">{t("news.marketInsights")}</h3>
@@ -277,6 +311,41 @@ const News = () => {
               </button>
             </div>
           </aside>
+        </div>
+
+        {/* Mobile Market Insights Section */}
+        <div className="xl:hidden mt-8">
+          <section className="bg-white rounded-lg p-4 sm:p-6 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{t("news.marketInsights")}</h3>
+              <button className="text-primary hover:text-primary/80 text-sm font-medium">{t("news.seeAll")}</button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {marketInsights.map((article) => (
+                <div key={article.id} className="border-b border-gray-100 pb-4 last:border-b-0 sm:border-b sm:last:border-b-0">
+                  <h4 className="text-sm sm:text-base font-medium text-gray-900 mb-2 line-clamp-3">
+                    {article.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <span>{article.author}</span>
+                    <span>•</span>
+                    <span>{article.time}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Mobile Subscribe Section */}
+          <section className="mt-6 bg-gradient-to-br from-primary to-primary-600 rounded-lg p-6 text-white">
+            <h3 className="font-semibold mb-2">{t("news.stayUpdated")}</h3>
+            <p className="text-sm opacity-90 mb-4">
+              {t("news.subscribeDescription")}
+            </p>
+            <button className="w-full bg-white text-primary font-medium py-2 px-4 rounded hover:bg-gray-100 transition-colors">
+              {t("news.subscribeNow")}
+            </button>
+          </section>
         </div>
       </div>
     </main>

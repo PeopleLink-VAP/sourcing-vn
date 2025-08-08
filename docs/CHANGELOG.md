@@ -1,4 +1,15 @@
 ### 2024-08-08
+- **News Page Responsive Design**: Made /news page fully responsive across all device sizes
+  - Added mobile-first category filter at the top for mobile and tablet devices
+  - Converted article cards from fixed layout to flexible flex/grid responsive design
+  - Made article images responsive (full-width on mobile, fixed-width on desktop)
+  - Optimized text sizes and spacing for different screen sizes (sm, md, lg, xl breakpoints)
+  - Hidden right sidebar on mobile/tablet, moved content to bottom of page for better mobile UX
+  - Implemented responsive typography (text-xl/2xl, text-base/lg scaling)
+  - Added proper mobile padding and container spacing
+  - Author names truncated on small screens to save space
+  - Market Insights section reorganized as horizontal cards on mobile
+  - Subscribe section repositioned for mobile accessibility
 - **Mobile Navigation Enhancement**: Updated mobile navigation structure and translations
   - Moved News section to the top of mobile navigation for better prominence
   - Added missing translation keys for mobile navigation labels (nav.mobile.news, nav.mobile.language)
