@@ -13,7 +13,7 @@ const dict: Dictionary = {
   "nav.blog": { vi: "Blog/Tài nguyên", en: "Blog/Resources" },
   "nav.catalogs": { vi: "Danh Mục", en: "Catalogs" },
   "nav.partners": { vi: "Đối tác", en: "Partners" },
-  "nav.cases": { vi: "Nghiên Cứu Điển Hình", en: "Case Studies" },
+  "nav.cases": { vi: "Dự án Điển Hình", en: "Case Studies" },
   "nav.team": { vi: "Đội ngũ", en: "Team" },
   "nav.contact": { vi: "Liên hệ", en: "Contact" },
   "hero.title": { vi: "Kết nối nhà cung cấp từ Việt Nam", en: "Source, Verify, Make in Vietnam" },
@@ -46,7 +46,7 @@ const dict: Dictionary = {
   "news.category.product_sourcing": { vi: "Dịch vụ tìm nguồn sản phẩm", en: "Product Sourcing Services" },
   "news.category.talent_sourcing": { vi: "Tìm nguồn nhân lực (Trợ lý ảo)", en: "Talent Sourcing (Virtual Assistants)" },
   "news.category.vietnam_market": { vi: "Thông tin thị trường Việt Nam & Tin tức", en: "Vietnam Market Insights & News" },
-  "news.category.case_studies": { vi: "Nghiên cứu điển hình & Tài nguyên", en: "Case Studies & Resources" },
+  "news.category.case_studies": { vi: "Dự án điển hình & Tài nguyên", en: "Case Studies & Resources" },
 
   // Homepage content
   "home.servicesTitle": { vi: "Giới thiệu dịch vụ", en: "Introduction to Services" },
@@ -102,7 +102,7 @@ const dict: Dictionary = {
   "nav.servicesDescription": { vi: "Các giải pháp tìm nguồn chuyên nghiệp kết nối bạn với sự xuất sắc trong sản xuất của Việt Nam.", en: "Professional sourcing solutions connecting you with Vietnam's manufacturing excellence." },
   "nav.productDescription": { vi: "Kết nối với các nhà máy đáng tin cậy để sản xuất chất lượng", en: "Connect with reliable factories for quality manufacturing" },
   "nav.talentDescription": { vi: "Thuê Trợ lý Ảo có kỹ năng từ Việt Nam", en: "Hire skilled Virtual Assistants from Vietnam" },
-  "nav.resourcesDescription": { vi: "Thông tin chi tiết, nghiên cứu điển hình và tài nguyên để giúp bạn thành công.", en: "Insights, case studies, and resources to help you succeed." },
+  "nav.resourcesDescription": { vi: "Thông tin chi tiết, dự án điển hình và tài nguyên để giúp bạn thành công.", en: "Insights, case studies, and resources to help you succeed." },
   "nav.casesDescription": { vi: "Các mối quan hệ đối tác của chúng tôi đang hoạt động", en: "Our partnerships in action" },
   "nav.catalogsDescription": { vi: "Danh mục sản phẩm và mẫu", en: "Product catalogs and samples" },
   "nav.partnersDescription": { vi: "Mạng lưới đáng tin cậy của chúng tôi", en: "Our trusted network" },
@@ -120,13 +120,13 @@ const dict: Dictionary = {
   "nav.newsbar.productSourcing": { vi: "Dịch vụ Tìm Nguồn Sản Phẩm", en: "Product Sourcing Services" },
   "nav.newsbar.talentSourcing": { vi: "Tìm Nguồn Nhân Lực (VAs)", en: "Talent Sourcing (VAs)" },
   "nav.newsbar.marketInsights": { vi: "Thông Tin Thị Trường Việt Nam", en: "Vietnam Market Insights" },
-  "nav.newsbar.caseStudies": { vi: "Nghiên Cứu Điển Hình & Tài Nguyên", en: "Case Studies & Resources" },
+  "nav.newsbar.caseStudies": { vi: "Dự án Điển Hình & Tài Nguyên", en: "Case Studies & Resources" },
   "nav.newsbar.aboutNetwork": { vi: "Về Mạng Lưới Của Chúng Tôi", en: "About Our Network" },
 
   // Footer links - product sourcing
   "footer.productSourcing": { vi: "Tìm Nguồn Sản Phẩm", en: "Product Sourcing" },
   "footer.talentSourcing": { vi: "Tìm Nguồn Nhân Lực", en: "Talent Sourcing" },
-  "footer.caseStudies": { vi: "Nghiên Cứu Điển Hình", en: "Case Studies" },
+  "footer.caseStudies": { vi: "Dự án Điển Hình", en: "Case Studies" },
   "footer.catalogs": { vi: "Danh Mục", en: "Catalogs" },
   "footer.partners": { vi: "Đối Tác", en: "Partners" },
 
