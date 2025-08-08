@@ -1,7 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, LogIn, LogOut, Shield, ChevronDown } from "lucide-react";
+import { Menu, LogIn, LogOut, Shield, ChevronDown, Home, Briefcase, BookOpen, Info, Newspaper } from "lucide-react";
 import { useI18n } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import {
@@ -81,18 +81,19 @@ export const SiteHeader = () => {
 
           <nav className="hidden md:flex items-center gap-1">
             <NavLink to="/" end className={linkCls}>
-              {t("nav.home")}
+              <Home className="w-4 h-4 mr-1" /> {t("nav.home")}
             </NavLink>
             
-            <NavLink to="/news" className={linkCls}>
-              News
-            </NavLink>
+
             
             <NavigationMenu>
               <NavigationMenuList>
                 {navGroups.map((group) => (
                   <NavigationMenuItem key={group.title}>
                     <NavigationMenuTrigger className={`px-3 py-2 text-sm ${isNewsMode ? 'text-[hsl(var(--news-text))]' : ''}`}>
+                      {group.title === "Services" && <Briefcase className="w-4 h-4 mr-1" />}
+                      {group.title === "Resources" && <BookOpen className="w-4 h-4 mr-1" />}
+                      {group.title === "About" && <Info className="w-4 h-4 mr-1" />}
                       {group.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -116,21 +117,29 @@ export const SiteHeader = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {isAdmin && (
-              <NavLink to="/admin" className={linkCls}>
-                <span className={`inline-flex items-center gap-1 ${isNewsMode ? 'text-[hsl(var(--news-text))]' : ''}`}>
-                  <Shield className="w-4 h-4" /> Admin
-                </span>
-              </NavLink>
-            )}
+            <NavLink to="/news" className={`${linkCls} text-orange-500`}>
+              <Newspaper className="w-4 h-4 mr-1" /> News
+            </NavLink>
+
+
           </nav>
 
           <div className="flex items-center gap-2">
             {user ? (
-              <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
-                <LogOut className="w-4 h-4" />
-                <span className="hidden sm:inline">Logout</span>
-              </Button>
+              <>
+                {isAdmin && (
+                  <Link to="/admin" aria-label="Admin Portal">
+                    <Button variant="ghost" size="sm" className="text-orange-500 hover:text-orange-600">
+                      <Shield className="w-4 h-4" />
+                      <span className="hidden sm:inline">Admin</span>
+                    </Button>
+                  </Link>
+                )}
+                <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
+                  <LogOut className="w-4 h-4" />
+                  <span className="hidden sm:inline">Logout</span>
+                </Button>
+              </>
             ) : null}
 
             <div className="md:hidden">
@@ -147,9 +156,7 @@ export const SiteHeader = () => {
               <NavLink to="/" end className={linkCls} onClick={() => setOpen(false)}>
                 {t("nav.home")}
               </NavLink>
-              <NavLink to="/news" className={linkCls} onClick={() => setOpen(false)}>
-                News
-              </NavLink>
+
               {navGroups.map((group) => (
                 <div key={group.title} className="space-y-1">
                   <div className="px-3 py-2 text-sm font-medium text-muted-foreground">{group.title}</div>
@@ -162,9 +169,12 @@ export const SiteHeader = () => {
               ))}
               {isAdmin && (
                 <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
-                  <span className="ml-4">Admin</span>
+                  <Shield className="w-4 h-4 mr-1" /> <span className="ml-4 text-orange-500">Admin</span>
                 </NavLink>
               )}
+              <NavLink to="/news" className={`${linkCls} text-orange-500`} onClick={() => setOpen(false)}>
+                News
+              </NavLink>
             </div>
           </div>
         )}
