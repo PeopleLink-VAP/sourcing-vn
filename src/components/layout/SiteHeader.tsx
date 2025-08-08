@@ -117,7 +117,7 @@ export const SiteHeader = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <NavLink to="/news" className={`${linkCls} text-orange-500`}>
+            <NavLink to="/news" className={`${linkCls} text-orange-500 px-2`}>
               <Newspaper className="w-4 h-4 mr-1" /> {t("nav.news")}
             </NavLink>
 
@@ -127,22 +127,8 @@ export const SiteHeader = () => {
           <div className="flex items-center gap-2">
             {user ? (
               <>
-                {isAdmin && (
-                  <Link to="/admin" aria-label="Admin Portal">
-                    <Button variant="ghost" size="sm" className="text-orange-500 hover:text-orange-600">
-                      <Shield className="w-4 h-4" />
-                      <span className="hidden sm:inline">{t("auth.admin")}</span>
-                    </Button>
-                  </Link>
-                )}
-              {isAdmin && (
-                <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
-                  <Shield className="w-4 h-4 mr-1" /> <span className="ml-4 text-orange-500">{t("auth.admin")}</span>
-                </NavLink>
-              )}
-                <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
+                <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout">
                   <LogOut className="w-4 h-4" />
-                  <span className="hidden sm:inline">{t("auth.logout")}</span>
                 </Button>
               </>
             ) : null}
