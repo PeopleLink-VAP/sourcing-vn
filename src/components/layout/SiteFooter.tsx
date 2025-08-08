@@ -15,13 +15,13 @@ export const SiteFooter = () => {
             <div className="space-y-2">
               <img src="/logos/logo_bw.png" alt="sourcing.vn logo" className="h-8 w-auto" />
               <p className="text-sm text-muted-foreground">
-                Kết nối doanh nghiệp toàn cầu với nhà máy & tài năng tại Việt Nam.
+                {t("footer.tagline")}
               </p>
             </div>
             
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p>Office: An Khánh, TP Thủ Đức, TP.HCM, Việt Nam</p>
-              <p>Email: contact@sourcing.vn</p>
+              <p>{t("footer.office")}</p>
+              <p>{t("footer.email")}</p>
             </div>
 
             <div className="flex items-center gap-3">
@@ -38,7 +38,7 @@ export const SiteFooter = () => {
 
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">Language:</span>
+                <span className="text-sm text-muted-foreground">{t("footer.language")}</span>
                 <div className="flex items-center rounded-md border">
                   <button
                     aria-label="Tiếng Việt"
@@ -57,16 +57,16 @@ export const SiteFooter = () => {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
-                © {new Date().getFullYear()} sourcing.vn · All rights reserved
+                {t("footer.copyright", { year: new Date().getFullYear() })}
                 {/* Subtle Admin login link */}
-                <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">Admin Login</Link>
+                <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("footer.adminLogin")}</Link>
               </p>
             </div>
           </div>
 
           {/* Column 2: For Business Owners */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm"><Briefcase className="w-4 h-4 mr-2 inline-block" /> For Business Owners</h3>
+            <h3 className="font-semibold text-sm"><Briefcase className="w-4 h-4 mr-2 inline-block" /> {t("footer.forBusinessOwners")}</h3>
             <div className="space-y-2">
               <Link to="/product-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
                 Product Sourcing
@@ -84,29 +84,29 @@ export const SiteFooter = () => {
                 Partners
               </Link>
               <Link to="/contact" className="block text-sm text-muted-foreground hover:text-foreground">
-                Contact Us
+                {t("footer.contactUs")}
               </Link>
             </div>
           </div>
 
           {/* Column 3: For Vietnamese Talents */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm"><Users className="w-4 h-4 mr-2 inline-block" /> For Vietnamese Talents</h3>
+            <h3 className="font-semibold text-sm"><Users className="w-4 h-4 mr-2 inline-block" /> {t("footer.forVietnameseTalents")}</h3>
             <div className="space-y-2">
               <Link to="/talent-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
-                Find Opportunities
+                {t("footer.findOpportunities")}
               </Link>
               <Link to="/news" className="block text-sm text-muted-foreground hover:text-foreground">
-                Industry News
+                {t("footer.industryNews")}
               </Link>
               <Link to="/blog" className="block text-sm text-muted-foreground hover:text-foreground">
-                Career Resources
+                {t("footer.careerResources")}
               </Link>
               <Link to="/team" className="block text-sm text-muted-foreground hover:text-foreground">
-                Meet Our Team
+                {t("footer.meetOurTeam")}
               </Link>
               <Link to="/contact" className="block text-sm text-muted-foreground hover:text-foreground">
-                Get In Touch
+                {t("footer.getInTouch")}
               </Link>
             </div>
           </div>

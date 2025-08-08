@@ -1,5 +1,5 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, LogIn, LogOut, Shield, ChevronDown, Home, Briefcase, BookOpen, Info, Newspaper } from "lucide-react";
 import { useI18n } from "@/contexts/LanguageContext";
@@ -15,14 +15,14 @@ import {
 
 const navGroups = [
   {
-    title: "Services",
+    titleKey: "nav.services" as const,
     items: [
       { to: "/product-sourcing", key: "nav.product" as const, desc: "Connect with Vietnamese manufacturers and suppliers" },
       { to: "/talent-sourcing", key: "nav.talent" as const, desc: "Find skilled Vietnamese professionals for your team" },
     ]
   },
   {
-    title: "Resources", 
+    titleKey: "nav.resources" as const, 
     items: [
       { to: "/blog", key: "nav.blog" as const, desc: "Expert insights and sourcing guides" },
       { to: "/case-studies", key: "nav.cases" as const, desc: "Success stories from our clients" },
@@ -30,7 +30,7 @@ const navGroups = [
     ]
   },
   {
-    title: "About",
+    titleKey: "nav.about" as const,
     items: [
       { to: "/team", key: "nav.team" as const, desc: "Meet our experienced team" },
       { to: "/partners", key: "nav.partners" as const, desc: "Our trusted network of partners" },
@@ -39,10 +39,10 @@ const navGroups = [
 ];
 
 const newsCategories = [
-  "Product Sourcing Services",
-  "Talent Sourcing (Virtual Assistants)", 
-  "Vietnam Market Insights & News",
-  "Case Studies & Resources",
+  "news.category.product_sourcing",
+  "news.category.talent_sourcing", 
+  "news.category.vietnam_market",
+  "news.category.case_studies",
 ];
 
 export const SiteHeader = () => {
@@ -89,12 +89,12 @@ export const SiteHeader = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 {navGroups.map((group) => (
-                  <NavigationMenuItem key={group.title}>
+                  <NavigationMenuItem key={group.titleKey}>
                     <NavigationMenuTrigger className={`px-3 py-2 text-sm ${isNewsMode ? 'text-[hsl(var(--news-text))]' : ''}`}>
-                      {group.title === "Services" && <Briefcase className="w-4 h-4 mr-1" />}
-                      {group.title === "Resources" && <BookOpen className="w-4 h-4 mr-1" />}
-                      {group.title === "About" && <Info className="w-4 h-4 mr-1" />}
-                      {group.title}
+                      {group.titleKey === "nav.services" && <Briefcase className="w-4 h-4 mr-1" />}
+                      {group.titleKey === "nav.resources" && <BookOpen className="w-4 h-4 mr-1" />}
+                      {group.titleKey === "nav.about" && <Info className="w-4 h-4 mr-1" />}
+                      {t(group.titleKey)}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[400px] p-4">
@@ -118,7 +118,7 @@ export const SiteHeader = () => {
             </NavigationMenu>
 
             <NavLink to="/news" className={`${linkCls} text-orange-500`}>
-              <Newspaper className="w-4 h-4 mr-1" /> News
+              <Newspaper className="w-4 h-4 mr-1" /> {t("nav.news")}
             </NavLink>
 
 
@@ -131,13 +131,18 @@ export const SiteHeader = () => {
                   <Link to="/admin" aria-label="Admin Portal">
                     <Button variant="ghost" size="sm" className="text-orange-500 hover:text-orange-600">
                       <Shield className="w-4 h-4" />
-                      <span className="hidden sm:inline">Admin</span>
+                      <span className="hidden sm:inline">{t("auth.admin")}</span>
                     </Button>
                   </Link>
                 )}
+              {isAdmin && (
+                <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
+                  <Shield className="w-4 h-4 mr-1" /> <span className="ml-4 text-orange-500">{t("auth.admin")}</span>
+                </NavLink>
+              )}
                 <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Logout">
                   <LogOut className="w-4 h-4" />
-                  <span className="hidden sm:inline">Logout</span>
+                  <span className="hidden sm:inline">{t("auth.logout")}</span>
                 </Button>
               </>
             ) : null}
@@ -158,8 +163,8 @@ export const SiteHeader = () => {
               </NavLink>
 
               {navGroups.map((group) => (
-                <div key={group.title} className="space-y-1">
-                  <div className="px-3 py-2 text-sm font-medium text-muted-foreground">{group.title}</div>
+                <div key={group.titleKey} className="space-y-1">
+                  <div className="px-3 py-2 text-sm font-medium text-muted-foreground">{t(group.titleKey)}</div>
                   {group.items.map((item) => (
                     <NavLink key={item.to} to={item.to} className={linkCls} onClick={() => setOpen(false)}>
                       <span className="ml-4">{t(item.key)}</span>
@@ -173,7 +178,7 @@ export const SiteHeader = () => {
                 </NavLink>
               )}
               <NavLink to="/news" className={`${linkCls} text-orange-500`} onClick={() => setOpen(false)}>
-                News
+                {t("nav.news")}
               </NavLink>
             </div>
           </div>
@@ -185,12 +190,12 @@ export const SiteHeader = () => {
         <div className="bg-[hsl(var(--news-bg))] border-b animate-slide-down sticky top-14 z-40">
           <div className="container mx-auto">
             <div className="flex gap-6 py-3 overflow-x-auto">
-              {newsCategories.map((category) => (
+              {newsCategories.map((categoryKey) => (
                 <button
-                  key={category}
+                  key={categoryKey}
                   className="text-[hsl(var(--news-text))] hover:text-[hsl(var(--news-text))]/80 whitespace-nowrap text-sm font-medium transition-colors"
                 >
-                  {category}
+                  {t(categoryKey)}
                 </button>
               ))}
             </div>
