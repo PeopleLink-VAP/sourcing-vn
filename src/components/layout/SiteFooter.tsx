@@ -66,7 +66,7 @@ export const SiteFooter = () => {
 
           {/* Column 2: For Business Owners */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm"><Briefcase className="w-4 h-4 mr-2 inline-block" /> {t("footer.forBusinessOwners")}</h3>
+            <h3 className="font-sentic-medium font-semibold text-sm"><Briefcase className="w-4 h-4 mr-2 inline-block" /> {t("footer.forBusinessOwners")}</h3>
             <div className="space-y-2">
               <Link to="/product-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
                 Product Sourcing
@@ -91,7 +91,7 @@ export const SiteFooter = () => {
 
           {/* Column 3: For Vietnamese Talents */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm"><Users className="w-4 h-4 mr-2 inline-block" /> {t("footer.forVietnameseTalents")}</h3>
+            <h3 className="font-sentic-medium font-semibold text-sm"><Users className="w-4 h-4 mr-2 inline-block" /> {t("footer.forVietnameseTalents")}</h3>
             <div className="space-y-2">
               <Link to="/talent-sourcing" className="block text-sm text-muted-foreground hover:text-foreground">
                 {t("footer.findOpportunities")}

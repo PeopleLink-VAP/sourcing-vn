@@ -1,190 +1,286 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, LogIn, LogOut, Shield, ChevronDown, Home, Briefcase, BookOpen, Info, Newspaper } from "lucide-react";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useI18n } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-
-const navGroups = [
-  {
-    titleKey: "nav.services" as const,
-    items: [
-      { to: "/product-sourcing", key: "nav.product" as const, desc: "Connect with Vietnamese manufacturers and suppliers" },
-      { to: "/talent-sourcing", key: "nav.talent" as const, desc: "Find skilled Vietnamese professionals for your team" },
-    ]
-  },
-  {
-    titleKey: "nav.resources" as const, 
-    items: [
-      { to: "/blog", key: "nav.blog" as const, desc: "Expert insights and sourcing guides" },
-      { to: "/case-studies", key: "nav.cases" as const, desc: "Success stories from our clients" },
-      { to: "/catalogs", key: "nav.catalogs" as const, desc: "Browse product and service catalogs" },
-    ]
-  },
-  {
-    titleKey: "nav.about" as const,
-    items: [
-      { to: "/team", key: "nav.team" as const, desc: "Meet our experienced team" },
-      { to: "/partners", key: "nav.partners" as const, desc: "Our trusted network of partners" },
-    ]
-  }
-];
-
-const newsCategories = [
-  "news.category.product_sourcing",
-  "news.category.talent_sourcing", 
-  "news.category.vietnam_market",
-  "news.category.case_studies",
-];
+import { Menu, Newspaper, LogOut, Factory, Users, FileText, Phone, Briefcase, HeadphonesIcon, Globe, ChevronDown } from "lucide-react";
 
 export const SiteHeader = () => {
   const { t } = useI18n();
-  const { user, isAdmin, signOut } = useAuth();
-  const [open, setOpen] = useState(false);
+  const { user, signOut } = useAuth();
   const location = useLocation();
+  const [open, setOpen] = useState(false);
   const [isNewsMode, setIsNewsMode] = useState(false);
 
   useEffect(() => {
-    const newsMode = location.pathname === '/news';
-    if (newsMode !== isNewsMode) {
-      setIsNewsMode(newsMode);
-    }
-  }, [location.pathname, isNewsMode]);
+    setIsNewsMode(location.pathname.startsWith('/news'));
+  }, [location]);
 
-  const linkCls = ({ isActive }: { isActive: boolean }) =>
-    `px-3 py-2 rounded-md text-sm ${isActive ? "bg-secondary text-primary" : "hover:bg-secondary"} ${isNewsMode ? 'text-[hsl(var(--news-text))]' : ''}`;
+  const navItemClass = `font-sentic-medium text-sm transition-all duration-300 hover:text-accent ${
+    isNewsMode ? 'text-white hover:text-white/80' : 'text-foreground'
+  }`;
+
+  const mobileNavItemClass = "flex items-center px-4 py-3 rounded-lg text-sm font-sentic-medium transition-colors hover:bg-accent hover:text-accent-foreground border-b border-border/10 last:border-0";
 
   return (
     <>
-      <header className={`sticky top-0 z-50 border-b transition-all duration-500 ${
+      <header className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${
         isNewsMode 
-          ? 'bg-[hsl(var(--news-bg-alpha))] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--news-bg-alpha))]' 
-          : 'bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+          ? 'bg-orange-500/90 backdrop-blur-md border-orange-400/20 shadow-lg' 
+          : 'bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm'
       }`}>
-        <div className="container mx-auto flex h-14 items-center justify-between">
-          <Link to="/">
+        <div className="container flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2 z-10">
             <img 
-              key={isNewsMode ? 'black' : 'main'}
               src={isNewsMode ? "/logos/logo_bw.png" : "/logos/logo_main.png"} 
-              alt="sourcing.vn logo" 
-              className={`h-8 w-auto transition-opacity duration-300 ${isNewsMode ? 'animate-fade-logo' : ''}`} 
+              alt="Sourcing Vietnam" 
+              className="h-8 transition-all duration-500"
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
-            <NavLink to="/" end className={linkCls}>
-              <Home className="w-4 h-4 mr-1" /> {t("nav.home")}
-            </NavLink>
-            
-
-            
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
             <NavigationMenu>
-              <NavigationMenuList>
-                {navGroups.map((group) => (
-                  <NavigationMenuItem key={group.titleKey}>
-                    <NavigationMenuTrigger className={`px-3 py-2 text-sm ${isNewsMode ? 'text-[hsl(var(--news-text))]' : ''}`}>
-                      {group.titleKey === "nav.services" && <Briefcase className="w-4 h-4 mr-1" />}
-                      {group.titleKey === "nav.resources" && <BookOpen className="w-4 h-4 mr-1" />}
-                      {group.titleKey === "nav.about" && <Info className="w-4 h-4 mr-1" />}
-                      {t(group.titleKey)}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="w-[400px] p-4">
-                        <div className="grid gap-3">
-                          {group.items.map((item) => (
-                            <Link key={item.to} to={item.to}>
-                              <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                                <div className="text-sm font-medium leading-none">{t(item.key)}</div>
-                                <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                  {item.desc}
-                                </p>
-                              </NavigationMenuLink>
-                            </Link>
-                          ))}
+              <NavigationMenuList className="space-x-1">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                    <Factory className="w-4 h-4 mr-2" />
+                    {t("nav.services")}
+                    <ChevronDown className="w-3 h-3 ml-1" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 md:w-[420px] lg:w-[520px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
+                      <div className="row-span-3">
+                        <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-primary/10 to-accent/10 p-6 no-underline outline-none focus:shadow-md">
+                          <Factory className="h-8 w-8 text-primary mb-3" />
+                          <div className="mb-2 text-lg font-sentic font-semibold text-primary">
+                            Our Services
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Professional sourcing solutions connecting you with Vietnam's manufacturing excellence.
+                          </p>
                         </div>
                       </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ))}
+                      <NavLink 
+                        to="/product-sourcing" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.product")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Connect with reliable factories for quality manufacturing
+                        </p>
+                      </NavLink>
+                      <NavLink 
+                        to="/talent-sourcing" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.talent")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Hire skilled Virtual Assistants from Vietnam
+                        </p>
+                      </NavLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                    <FileText className="w-4 h-4 mr-2" />
+                    {t("nav.resources")}
+                    <ChevronDown className="w-3 h-3 ml-1" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 md:w-[420px] lg:w-[520px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
+                      <div className="row-span-4">
+                        <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-secondary/20 to-muted/20 p-6 no-underline outline-none focus:shadow-md">
+                          <FileText className="h-8 w-8 text-primary mb-3" />
+                          <div className="mb-2 text-lg font-sentic font-semibold text-primary">
+                            Resources
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Insights, case studies, and resources to help you succeed.
+                          </p>
+                        </div>
+                      </div>
+                      <NavLink 
+                        to="/case-studies" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.cases")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Our partnerships in action
+                        </p>
+                      </NavLink>
+                      <NavLink 
+                        to="/catalogs" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.catalogs")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Product catalogs and samples
+                        </p>
+                      </NavLink>
+                      <NavLink 
+                        to="/partners" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.partners")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Our trusted network
+                        </p>
+                      </NavLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10`}>
+                    <Users className="w-4 h-4 mr-2" />
+                    {t("nav.about")}
+                    <ChevronDown className="w-3 h-3 ml-1" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 md:w-[380px] lg:w-[450px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-md border shadow-lg rounded-lg">
+                      <div className="row-span-2">
+                        <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-accent/10 to-primary/5 p-6 no-underline outline-none focus:shadow-md">
+                          <Users className="h-8 w-8 text-primary mb-3" />
+                          <div className="mb-2 text-lg font-sentic font-semibold text-primary">
+                            About Us
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Learn more about our team and mission.
+                          </p>
+                        </div>
+                      </div>
+                      <NavLink 
+                        to="/team" 
+                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/50"
+                      >
+                        <div className="text-sm font-sentic-medium leading-none group-hover:text-primary">{t("nav.team")}</div>
+                        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          Meet our expert team
+                        </p>
+                      </NavLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
-            <NavLink to="/news" className={`${linkCls} text-orange-500 px-2`}>
-              <Newspaper className="w-4 h-4 mr-1" /> {t("nav.news")}
+            <NavLink to="/news" className={`${navItemClass} px-4 py-2 rounded-lg hover:bg-accent/10 ml-4 border-l border-border/20 pl-6`}>
+              <Newspaper className="w-4 h-4 mr-2" />
+              {t("nav.news")}
             </NavLink>
+          </div>
 
-
-          </nav>
-
+          {/* Desktop Auth & Mobile Menu Button */}
           <div className="flex items-center gap-2">
-            {user ? (
-              <>
-                <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout">
-                  <LogOut className="w-4 h-4" />
-                </Button>
-              </>
-            ) : null}
-
-            <div className="md:hidden">
-              <Button variant="outline" size="icon" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
-                <Menu />
+            {user && (
+              <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout" className="hidden md:flex">
+                <LogOut className="w-4 h-4" />
               </Button>
-            </div>
+            )}
+
+            {/* Mobile Menu Button */}
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 p-0">
+                <div className="flex flex-col h-full bg-background/95 backdrop-blur-md">
+                  {/* Mobile Header */}
+                  <div className="p-6 border-b border-border/10">
+                    <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+                      <img src="/logos/logo_main.png" alt="Sourcing Vietnam" className="h-8" />
+                    </Link>
+                  </div>
+
+                  {/* Mobile Navigation */}
+                  <nav className="flex-1 p-4 space-y-2">
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3">Services</h4>
+                      <NavLink to="/product-sourcing" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Factory className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.product")}</span>
+                      </NavLink>
+                      <NavLink to="/talent-sourcing" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <HeadphonesIcon className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.talent")}</span>
+                      </NavLink>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">Resources</h4>
+                      <NavLink to="/news" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Newspaper className="w-5 h-5 mr-3 text-accent" />
+                        <span>{t("nav.news")}</span>
+                      </NavLink>
+                      <NavLink to="/case-studies" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Briefcase className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.cases")}</span>
+                      </NavLink>
+                      <NavLink to="/catalogs" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <FileText className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.catalogs")}</span>
+                      </NavLink>
+                      <NavLink to="/partners" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Globe className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.partners")}</span>
+                      </NavLink>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-3 mt-6">About</h4>
+                      <NavLink to="/team" className={mobileNavItemClass} onClick={() => setOpen(false)}>
+                        <Users className="w-5 h-5 mr-3 text-primary" />
+                        <span>{t("nav.team")}</span>
+                      </NavLink>
+                    </div>
+                  </nav>
+
+                  {/* Mobile Footer */}
+                  {user && (
+                    <div className="p-4 border-t border-border/10">
+                      <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="w-full justify-start font-sentic-medium">
+                        <LogOut className="w-4 h-4 mr-2" />
+                        {t("auth.logout")}
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-
-        {open && (
-          <div className="md:hidden border-t">
-            <div className="container mx-auto py-2 space-y-1">
-              <NavLink to="/" end className={linkCls} onClick={() => setOpen(false)}>
-                {t("nav.home")}
-              </NavLink>
-
-              {navGroups.map((group) => (
-                <div key={group.titleKey} className="space-y-1">
-                  <div className="px-3 py-2 text-sm font-medium text-muted-foreground">{t(group.titleKey)}</div>
-                  {group.items.map((item) => (
-                    <NavLink key={item.to} to={item.to} className={linkCls} onClick={() => setOpen(false)}>
-                      <span className="ml-4">{t(item.key)}</span>
-                    </NavLink>
-                  ))}
-                </div>
-              ))}
-              {isAdmin && (
-                <NavLink to="/admin" className={linkCls} onClick={() => setOpen(false)}>
-                  <Shield className="w-4 h-4 mr-1" /> <span className="ml-4 text-orange-500">Admin</span>
-                </NavLink>
-              )}
-              <NavLink to="/news" className={`${linkCls} text-orange-500`} onClick={() => setOpen(false)}>
-                {t("nav.news")}
-              </NavLink>
-            </div>
-          </div>
-        )}
       </header>
-      
-      {/* News Categories Bar */}
+
+      {/* News Category Bar */}
       {isNewsMode && (
-        <div className="bg-[hsl(var(--news-bg))] border-b animate-slide-down sticky top-14 z-40">
-          <div className="container mx-auto">
-            <div className="flex gap-6 py-3 overflow-x-auto">
-              {newsCategories.map((categoryKey) => (
-                <button
-                  key={categoryKey}
-                  className="text-[hsl(var(--news-text))] hover:text-[hsl(var(--news-text))]/80 whitespace-nowrap text-sm font-medium transition-colors"
-                >
-                  {t(categoryKey)}
-                </button>
-              ))}
-            </div>
+        <div className="sticky top-16 z-40 bg-orange-400/90 backdrop-blur-sm border-b border-orange-300/20 animate-slide-down shadow-sm">
+          <div className="container mx-auto px-4">
+            <nav className="flex items-center gap-8 py-3 overflow-x-auto">
+              <a href="#product-sourcing" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
+                Product Sourcing Services
+              </a>
+              <a href="#talent-sourcing" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
+                Talent Sourcing (VAs)
+              </a>
+              <a href="#market-insights" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
+                Vietnam Market Insights
+              </a>
+              <a href="#case-studies" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
+                Case Studies & Resources
+              </a>
+              <a href="#about-network" className="text-white hover:text-orange-100 whitespace-nowrap text-sm font-sentic-medium transition-colors hover:underline underline-offset-4">
+                About Our Network
+              </a>
+            </nav>
           </div>
         </div>
       )}
