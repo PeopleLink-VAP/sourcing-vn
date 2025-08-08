@@ -1,4 +1,16 @@
 ### 2025-01-08
+- **Major Admin Layout Restructure**: Created separate admin layout with collapsible sidebar design
+  - Created new `AdminLayout` component with collapsible sidebar navigation
+  - Replaced top navigation bar with dedicated admin sidebar for `/admin` routes
+  - Implemented nested routing structure for admin pages using React Router
+  - Added dashboard-style admin portal with stats cards and organized sections
+  - Created dedicated admin pages: Dashboard, Membership Tiers, Newsletter Campaigns, Content Management, Settings
+  - Sidebar features: collapsible design, active state highlighting, direct access to main site
+  - Admin layout completely separate from main site layout (no header/footer)
+  - Enhanced AdminPortal component with modern card-based dashboard design
+  - All admin routes now use consistent admin layout instead of shared main layout
+  - Added proper page titles and SEO for all admin pages
+  - Improved admin user experience with dedicated interface design
 - **Admin Dashboard Links Enhancement**: Added conditional admin portal access links for logged-in admin users
   - In **Footer**: Replaced "Admin Login" link with "Admin Dashboard" link for logged-in admin users, non-admin users still see "Admin Login" link
   - In **Header**: Added Shield icon button for admin portal access (desktop navigation)

@@ -25,79 +25,79 @@ const Index = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Rapidly emerging as 'the next Tiger of Asia' in outsourcing",
+      title: t('whyVietnam.benefits.rapidlyEmerging'),
     },
     {
       icon: FileText,
-      title: "Favorable trade agreements & easier regulatory navigation",
+      title: t('whyVietnam.benefits.favorableTrade'),
     },
     {
       icon: Globe,
-      title: "Competitive pricing & a highly skilled labor force",
+      title: t('whyVietnam.benefits.competitivePricing'),
     },
     {
       icon: ShieldCheck,
-      title: "Diverse product range with a strong emphasis on quality",
+      title: t('whyVietnam.benefits.diverseProductRange'),
     },
     {
       icon: Factory,
-      title: "Strategic proximity to other key sourcing destinations",
+      title: t('whyVietnam.benefits.strategicProximity'),
     },
   ];
 
   const productServices = [
-    { icon: Package, title: "Customized Factory Lists" },
-    { icon: ShieldCheck, title: "Sample Handling" },
-    { icon: CheckCircle, title: "Quality Inspection" },
-    { icon: FileText, title: "Quotation Assistance" },
-    { icon: Globe, title: "Logistic Support" },
+    { icon: Package, title: t('productSourcing.services.customizedFactoryLists') },
+    { icon: ShieldCheck, title: t('productSourcing.services.sampleHandling') },
+    { icon: CheckCircle, title: t('productSourcing.services.qualityInspection') },
+    { icon: FileText, title: t('productSourcing.services.quotationAssistance') },
+    { icon: Globe, title: t('productSourcing.services.logisticSupport') },
   ];
 
   const talentServices = [
-    { icon: Users, title: "Consultation & Matching" },
-    { icon: Calendar, title: "Trial Period" },
-    { icon: HeadphonesIcon, title: "Dedicated Support" },
+    { icon: Users, title: t('talentSourcing.services.consultationMatching') },
+    { icon: Calendar, title: t('talentSourcing.services.trialPeriod') },
+    { icon: HeadphonesIcon, title: t('talentSourcing.services.dedicatedSupport') },
   ];
 
   const testimonials = [
     {
-      content: "Incredible Seller. Duyen far exceeded my expectations. Her communication and delivery went above and beyond my requests. Thank you!",
-      author: "Mr. Awan",
-      location: "Canada"
+      content: t('testimonials.testimonial1.content'),
+      author: t('testimonials.testimonial1.author'),
+      location: t('testimonials.testimonial1.location')
     },
     {
-      content: "It was a pleasure to work with her. She was very fast in delivering the work and she answered all my questions.",
-      author: "Mr. David",
-      location: "Italy"
+      content: t('testimonials.testimonial2.content'),
+      author: t('testimonials.testimonial2.author'),
+      location: t('testimonials.testimonial2.location')
     }
   ];
 
   const newsItems = [
     {
-      headline: "Vietnam's New Export Policies to Boost Manufacturing Sector",
-      snippet: "Recent government initiatives are set to further enhance Vietnam's position in the global supply chain, offering new opportunities for international partners...",
-      date: "November 2024",
-      source: "Ministry of Industry & Trade"
+      headline: t('news.item1.headline'),
+      snippet: t('news.item1.snippet'),
+      date: t('news.item1.date'),
+      source: t('news.item1.source')
     },
     {
-      headline: "Growing Demand for Eco-Friendly Handicrafts from Vietnamese Artisans",
-      snippet: "The global shift towards sustainable products has seen a significant surge in demand for bamboo and rattan goods sourced from Vietnamese suppliers...",
-      date: "October 2024",
-      source: "Market Research Quarterly"
+      headline: t('news.item2.headline'),
+      snippet: t('news.item2.snippet'),
+      date: t('news.item2.date'),
+      source: t('news.item2.source')
     },
     {
-      headline: "The Role of Virtual Assistants in Streamlining International Supply Chains",
-      snippet: "As businesses seek agility, Vietnamese Virtual Assistants are playing a crucial role in managing logistics, communications, and project coordination...",
-      date: "October 2024",
-      source: "Outsourcing Today"
+      headline: t('news.item3.headline'),
+      snippet: t('news.item3.snippet'),
+      date: t('news.item3.date'),
+      source: t('news.item3.source')
     }
   ];
 
   return (
     <main>
       <SEO
-        title="Source, Verify, Make in Vietnam | Sourcing.vn — Your Trusted Partner"
-        description="Your trusted partner for high-quality products & skilled virtual assistants from Vietnam. Connect with Vietnam's finest manufacturers and talent."
+        title={t('seo.title')}
+        description={t('seo.description')}
         image={heroImage}
       />
 
@@ -107,20 +107,20 @@ const Index = () => {
         <div className="container mx-auto py-16 md:py-24 grid gap-8 md:grid-cols-2 items-center">
           <div>
             <h1 className="font-sentic text-4xl md:text-5xl font-bold leading-tight text-primary-foreground">
-              Source, Verify, Make in Vietnam
+              {t('hero.title')}
             </h1>
             <p className="mt-4 text-lg text-primary-foreground/90 max-w-prose">
-              Your Trusted Partner for High-Quality Products & Skilled Virtual Assistants from Vietnam.
+              {t('hero.description')}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/product-sourcing">
                 <Button variant="cta" size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Source Products
+                  {t('hero.sourceProductsButton')}
                 </Button>
               </Link>
               <Link to="/talent-sourcing">
                 <Button variant="hero" size="lg" className="bg-white/10 text-white border border-white/20 hover:bg-white/20">
-                  Hire Talents
+                  {t('hero.hireTalentsButton')}
                 </Button>
               </Link>
             </div>
@@ -135,14 +135,14 @@ const Index = () => {
       <section className="container mx-auto py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-sentic text-3xl font-bold text-primary mb-6">
-            Connecting You to Vietnam's Finest
+            {t('intro.title')}
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-3xl mx-auto">
-            Led by founder Duyen Pham, Sourcing.vn specializes in connecting international clients with Vietnam's best manufacturers and skilled virtual assistants. With 10+ years of experience, Duyen has assisted 30+ individuals and brands, building an extensive network of Vietnamese manufacturers. Her foundational values of honesty, responsibility, and "founder's mindset" ensure she understands client needs and solves complex problems efficiently.
+            {t('intro.description')}
           </p>
           <Link to="/founder">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              Learn More About Duyen's Journey
+              {t('intro.button')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
@@ -154,7 +154,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sentic text-3xl font-bold text-primary mb-4">
-              Why Vietnam? The Next Global Sourcing Hub
+              {t('whyVietnam.title')}
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -177,10 +177,10 @@ const Index = () => {
           <Card className="border-border">
             <CardHeader>
               <CardTitle className="font-sentic text-2xl text-primary">
-                Reliable Product Sourcing
+                {t('productSourcing.title')}
               </CardTitle>
               <CardDescription className="text-base">
-                From textiles and handicrafts to footwear and eco-friendly furniture, we connect you with Vietnam's best manufacturers. Our end-to-end service covers inquiry, supplier selection, quality control, and logistics.
+                {t('productSourcing.description')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -194,7 +194,7 @@ const Index = () => {
               </div>
               <Link to="/product-sourcing">
                 <Button variant="cta" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                  Explore Product Categories
+                  {t('productSourcing.button')}
                 </Button>
               </Link>
             </CardContent>
@@ -204,10 +204,10 @@ const Index = () => {
           <Card className="border-border">
             <CardHeader>
               <CardTitle className="font-sentic text-2xl text-primary">
-                Skilled Virtual Assistants from Vietnam
+                {t('talentSourcing.title')}
               </CardTitle>
               <CardDescription className="text-base">
-                Access highly skilled, English-speaking VAs for general assistance, project management, customer support, social media, and more. Benefit from their strong work ethic and affordability.
+                {t('talentSourcing.description')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -221,7 +221,7 @@ const Index = () => {
               </div>
               <Link to="/talent-sourcing">
                 <Button variant="cta" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                  Find Your VA Today
+                  {t('talentSourcing.button')}
                 </Button>
               </Link>
             </CardContent>
@@ -232,11 +232,9 @@ const Index = () => {
       {/* Client Testimonials */}
       <section className="bg-muted/30 py-16">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-sentic text-3xl font-bold text-primary mb-4">
-              Our Clients' Success Stories
-            </h2>
-          </div>
+          <h2 className="font-sentic text-3xl font-bold text-primary mb-12 text-center">
+            {t('testimonials.title')}
+          </h2>
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="border-border">
@@ -271,8 +269,8 @@ const Index = () => {
       {/* News & Market Insights */}
       <section className="container mx-auto py-16">
         <div className="text-center mb-12">
-          <h2 className="font-sentic text-3xl font-bold text-primary mb-4">
-            Latest Sourcing News & Vietnam Market Trends
+          <h2 className="font-sentic text-3xl font-bold text-primary mb-12 text-center">
+            {t('news.title')}
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3 mb-8">

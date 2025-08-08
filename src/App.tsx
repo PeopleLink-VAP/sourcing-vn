@@ -21,10 +21,15 @@ import AndyPlasticHandles from "./pages/case-studies/AndyPlasticHandles";
 import VuKohlerEcoProducts from "./pages/case-studies/VuKohlerEcoProducts";
 import Team from "./pages/Team";
 import AdminPortal from "./pages/AdminPortal";
+import MembershipsPage from "./pages/admin/MembershipsPage";
+import NewslettersPage from "./pages/admin/NewslettersPage";
+import ContentPage from "./pages/admin/ContentPage";
+import SettingsPage from "./pages/admin/SettingsPage";
 import EditorPortal from "./pages/EditorPortal";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { SiteHeader } from "./components/layout/SiteHeader";
 import { SiteFooter } from "./components/layout/SiteFooter";
+import AdminLayout from "./components/layout/AdminLayout";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import AuthPage from "./pages/Auth";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -41,30 +46,52 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <SiteHeader />
-              <ScrollToTop />
               <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/founder" element={<Founder />} />
-                <Route path="/product-sourcing" element={<ProductSourcing />} />
-                <Route path="/talent-sourcing" element={<TalentSourcing />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/catalogs" element={<Catalogs />} />
-                <Route path="/partners" element={<Partners />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
-                <Route path="/case-studies/reimer-jackets" element={<ReimerJackets />} />
-                <Route path="/case-studies/nicole-bags" element={<NicoleBags />} />
-                <Route path="/case-studies/andy-plastic-handles" element={<AndyPlasticHandles />} />
-                <Route path="/case-studies/vu-kohler-eco-products" element={<VuKohlerEcoProducts />} />
-                <Route path="/team" element={<Team />} />
-                <Route path="/auth" element={<AuthPage />} />
-                <Route path="/admin" element={<RequireAdmin><AdminPortal /></RequireAdmin>} />
-                <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
+                {/* Admin Routes - Separate Layout */}
+                <Route path="/admin/*" element={
+                  <RequireAdmin>
+                    <AdminLayout>
+                      <Routes>
+                        <Route index element={<AdminPortal />} />
+                        <Route path="memberships" element={<MembershipsPage />} />
+                        <Route path="newsletters" element={<NewslettersPage />} />
+                        <Route path="content" element={<ContentPage />} />
+                        <Route path="settings" element={<SettingsPage />} />
+                        {/* Future admin sub-routes can be added here */}
+                      </Routes>
+                    </AdminLayout>
+                  </RequireAdmin>
+                } />
+                
+                {/* Main Site Routes - Standard Layout */}
+                <Route path="*" element={
+                  <>
+                    <SiteHeader />
+                    <ScrollToTop />
+                    <Routes>
+                      <Route path="/" element={<Index />} />
+                      <Route path="/founder" element={<Founder />} />
+                      <Route path="/product-sourcing" element={<ProductSourcing />} />
+                      <Route path="/talent-sourcing" element={<TalentSourcing />} />
+                      <Route path="/news" element={<News />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/catalogs" element={<Catalogs />} />
+                      <Route path="/partners" element={<Partners />} />
+                      <Route path="/case-studies" element={<CaseStudies />} />
+                      <Route path="/case-studies/reimer-jackets" element={<ReimerJackets />} />
+                      <Route path="/case-studies/nicole-bags" element={<NicoleBags />} />
+                      <Route path="/case-studies/andy-plastic-handles" element={<AndyPlasticHandles />} />
+                      <Route path="/case-studies/vu-kohler-eco-products" element={<VuKohlerEcoProducts />} />
+                      <Route path="/team" element={<Team />} />
+                      <Route path="/auth" element={<AuthPage />} />
+                      <Route path="/editor" element={<RequireAuth><EditorPortal /></RequireAuth>} />
+                      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                    <SiteFooter />
+                  </>
+                } />
               </Routes>
-              <SiteFooter />
             </BrowserRouter>
           </TooltipProvider>
         </LanguageProvider>
