@@ -8,7 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Menu, Newspaper, LogOut, Factory, Users, FileText, Phone, Briefcase, HeadphonesIcon, Globe, ChevronDown } from "lucide-react";
 
 export const SiteHeader = () => {
-  const { t } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const { user, signOut } = useAuth();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -186,11 +186,26 @@ export const SiteHeader = () => {
 
           {/* Desktop Auth & Mobile Menu Button */}
           <div className="flex items-center gap-2">
-            {user && (
-              <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout" className="hidden md:flex">
-                <LogOut className="w-4 h-4" />
-              </Button>
-            )}
+            <div className="hidden md:flex items-center gap-2">
+              <button
+                className={`px-1 text-sm ${lang === "vi" ? "text-accent" : "text-muted-foreground"}`}
+                onClick={() => setLang("vi")}
+              >
+                VI
+              </button>
+              <span className="text-muted-foreground">/</span>
+              <button
+                className={`px-1 text-sm ${lang === "en" ? "text-accent" : "text-muted-foreground"}`}
+                onClick={() => setLang("en")}
+              >
+                EN
+              </button>
+              {user && (
+                <Button variant="ghost" size="icon" onClick={() => signOut()} aria-label="Logout">
+                  <LogOut className="w-4 h-4" />
+                </Button>
+              )}
+            </div>
 
             {/* Mobile Menu Button */}
             <Sheet open={open} onOpenChange={setOpen}>

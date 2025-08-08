@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Mail, Linkedin, Facebook, Briefcase, Users, Lightbulb } from "lucide-react";
+
 import { useI18n } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
+ import { Button } from "@/components/ui/button";
 
 export const SiteFooter = () => {
-  const { t, lang, setLang } = useI18n();
+  const { t } = useI18n();
 
   return (
     <footer className="border-t bg-muted/30">
@@ -36,32 +37,11 @@ export const SiteFooter = () => {
               </a>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">{t("footer.language")}</span>
-                <div className="flex items-center rounded-md border">
-                  <button
-                    aria-label="Tiếng Việt"
-                    className={`px-2 py-1 text-xs rounded-l-md ${lang === "vi" ? "bg-secondary" : ""}`}
-                    onClick={() => setLang("vi")}
-                  >
-                    VI
-                  </button>
-                  <button
-                    aria-label="English"
-                    className={`px-2 py-1 text-xs rounded-r-md ${lang === "en" ? "bg-secondary" : ""}`}
-                    onClick={() => setLang("en")}
-                  >
-                    EN
-                  </button>
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {t("footer.copyright", { year: new Date().getFullYear() })}
-                {/* Subtle Admin login link */}
-                <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("footer.adminLogin")}</Link>
-              </p>
-            </div>
+            <p className="text-xs text-muted-foreground">
+              {t("footer.copyright", { year: new Date().getFullYear() })}
+              {/* Subtle Admin login link */}
+              <Link to="/auth" className="ml-2 text-xs text-muted-foreground hover:text-foreground opacity-60 hover:opacity-100 transition-opacity duration-200">{t("footer.adminLogin")}</Link>
+            </p>
           </div>
 
           {/* Column 2: For Business Owners */}
