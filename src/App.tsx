@@ -14,6 +14,10 @@ import Contact from "./pages/Contact";
 import Catalogs from "./pages/Catalogs";
 import Partners from "./pages/Partners";
 import CaseStudies from "./pages/CaseStudies";
+import ReimerJackets from "./pages/case-studies/ReimerJackets";
+import NicoleBags from "./pages/case-studies/NicoleBags";
+import AndyPlasticHandles from "./pages/case-studies/AndyPlasticHandles";
+import VuKohlerEcoProducts from "./pages/case-studies/VuKohlerEcoProducts";
 import Team from "./pages/Team";
 import AdminPortal from "./pages/AdminPortal";
 import EditorPortal from "./pages/EditorPortal";
@@ -45,6 +49,10 @@ const App = () => (
                 <Route path="/catalogs" element={<Catalogs />} />
                 <Route path="/partners" element={<Partners />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/case-studies/reimer-jackets" element={<ReimerJackets />} />
+                <Route path="/case-studies/nicole-bags" element={<NicoleBags />} />
+                <Route path="/case-studies/andy-plastic-handles" element={<AndyPlasticHandles />} />
+                <Route path="/case-studies/vu-kohler-eco-products" element={<VuKohlerEcoProducts />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/auth" element={<AuthPage />} />
                 <Route path="/admin" element={<RequireAdmin><AdminPortal /></RequireAdmin>} />
