@@ -9,6 +9,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    strictPort: false,
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'dev.sourcing.vn',
+      '.sourcing.vn'  // Allow all subdomains of sourcing.vn
+    ]
   },
   plugins: [
     react(),

@@ -81,3 +81,11 @@
 - Implemented automatic scrolling to the top of the page when navigating to a new route.
 - Fixed import error for `ScrollToTop` component in `App.tsx`.
 
+
+## 2025-08-09 14:43:00 - PM2 Development Setup
+- **PM2 Configuration**: Set up PM2 process manager for automatic sourcing.vn development server management
+- **Auto-startup**: Configured PM2 to automatically start on system boot using systemd
+- **Domain Access**: Updated Vite config to allow dev.sourcing.vn domain access via Cloudflare tunnel
+- **Process Management**: sourcing-vn-dev process now runs continuously in background with auto-restart
+- **Logging**: PM2 logs configured for monitoring and debugging
+- **Status**: Development server accessible at http://localhost:8080 and https://dev.sourcing.vn
