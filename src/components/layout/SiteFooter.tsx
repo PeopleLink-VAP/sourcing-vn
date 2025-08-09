@@ -4,6 +4,7 @@ import { Mail, Linkedin, Facebook, Briefcase, Users, Lightbulb } from "lucide-re
 import { useI18n } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
+import { GitDebugInfo } from "@/components/GitDebugInfo";
 
 export const SiteFooter = () => {
   const { t } = useI18n();
@@ -97,6 +98,9 @@ export const SiteFooter = () => {
             </div>
           </div>
         </div>
+        
+        {/* Git Debug Info */}
+        <GitDebugInfo />
       </div>
     </footer>
   );

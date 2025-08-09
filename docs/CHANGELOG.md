@@ -82,6 +82,16 @@
 - Fixed import error for `ScrollToTop` component in `App.tsx`.
 
 
+## 2025-08-09 15:05:00 - Git Debug Information
+- **Footer Debug Area**: Added small debug section in footer showing git commit information
+- **Build Integration**: Modified Vite config to inject git commit hash, date, and message at build time
+- **GitDebugInfo Component**: Created dedicated component to display commit info with hover tooltip
+- **useGitInfo Hook**: Custom hook to manage git information state and loading
+- **TypeScript Support**: Added proper type declarations for git constants
+- **UI Design**: Subtle debug area with very small text, low opacity, hover interactions
+- **Hover Details**: Shows full commit message on hover for debugging deployed versions
+- **Production Ready**: Git information automatically captured during build process
+
 ## 2025-08-09 14:43:00 - PM2 Development Setup
 - **PM2 Configuration**: Set up PM2 process manager for automatic sourcing.vn development server management
 - **Auto-startup**: Configured PM2 to automatically start on system boot using systemd
