@@ -13,17 +13,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
+    - name: Setup Node.js with NVM
+      run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
+        echo "Node version: $(node --version)"
+        echo "NPM version: $(npm --version)"
+        echo "PM2 version: $(pm2 --version)"
         
     - name: Install dependencies
-      run: npm ci
+      run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
+        npm ci
       
     - name: Build project (if needed)
       run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
         if [ -f "package.json" ] && grep -q '"build"' package.json; then
           npm run build
         else
@@ -32,8 +39,10 @@ jobs:
         
     - name: Restart PM2 applications
       run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
         # Check if PM2 is running any processes
-        if pm2 list | grep -q "online\|stopped\|errored"; then
+        if pm2 list | grep -q "online\\|stopped\\|errored"; then
           echo "Restarting existing PM2 processes..."
           pm2 restart all
         else
@@ -49,7 +58,13 @@ jobs:
         fi
         
     - name: Save PM2 configuration
-      run: pm2 save
+      run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
+        pm2 save
       
     - name: Show PM2 status
-      run: pm2 list
+      run: |
+        source /home/dev/.nvm/nvm.sh
+        nvm use 20.19.4
+        pm2 list
