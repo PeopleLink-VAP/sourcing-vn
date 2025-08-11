@@ -50,21 +50,6 @@ const ContactPage = () => {
     reset();
   };
 
-  const faqs = [
-    {
-      question: t('faq.whatIsSourcing'),
-      answer: t('faq.whatIsSourcingAnswer')
-    },
-    {
-      question: t('faq.isPlatform'),
-      answer: t('faq.isPlatformAnswer')
-    },
-    {
-      question: t('faq.relationship'),
-      answer: t('faq.relationshipAnswer')
-    }
-  ];
-
   return (
     <main className="bg-gray-50">
       <SEO
@@ -117,7 +102,7 @@ const ContactPage = () => {
                     control={control}
                     render={({ field }) => <Input id="name" {...field} placeholder="John Doe" className="mt-1" />}
                   />
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{t(errors.name.message as any)}</p>}
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{t(errors.name.message as string)}</p>}
                 </div>
                 <div>
                   <Label htmlFor="company">{t('contact.company')}</Label>
@@ -135,7 +120,7 @@ const ContactPage = () => {
                   control={control}
                   render={({ field }) => <Input id="email" type="email" {...field} placeholder="you@example.com" className="mt-1" />}
                 />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{t(errors.email.message as any)}</p>}
+                {errors.email && <p className="text-red-500 text-sm mt-1">{t(errors.email.message as string)}</p>}
               </div>
               <div>
                 <Label htmlFor="projectType">{t('contact.projectType')}</Label>
@@ -156,7 +141,7 @@ const ContactPage = () => {
                     </Select>
                   )}
                 />
-                {errors.projectType && <p className="text-red-500 text-sm mt-1">{t(errors.projectType.message as any)}</p>}
+                {errors.projectType && <p className="text-red-500 text-sm mt-1">{t(errors.projectType.message as string)}</p>}
               </div>
               <div>
                 <Label htmlFor="message">{t('contact.message')}</Label>
@@ -165,7 +150,7 @@ const ContactPage = () => {
                   control={control}
                   render={({ field }) => <Textarea id="message" {...field} rows={5} placeholder={t('contact.messageDescription')} className="mt-1" />}
                 />
-                {errors.message && <p className="text-red-500 text-sm mt-1">{t(errors.message.message as any)}</p>}
+                {errors.message && <p className="text-red-500 text-sm mt-1">{t(errors.message.message as string)}</p>}
               </div>
               <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-500 text-white hover:bg-orange-600 rounded-lg py-3">
                 {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
@@ -173,27 +158,7 @@ const ContactPage = () => {
             </form>
           </div>
 
-          {/* FAQ */}
-          <div>
-            <h2 className="font-sentic text-3xl font-bold text-blue-900 mb-2">{t('contact.faq')}</h2>
-            <p className="text-gray-600 mb-6">{t('contact.faqSubtitle')}</p>
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="font-semibold text-blue-900">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-            <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-blue-900 mb-2">{t('faq.ourOffice')}</h3>
-              <p className="text-gray-600">{t('contact.office')}</p>
-              <h3 className="font-semibold text-blue-900 mt-4 mb-2">{t('faq.email')}</h3>
-              <p className="text-gray-600">{t('contact.email')}</p>
-            </div>
-          </div>
+
         </div>
       </section>
 
